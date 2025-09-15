@@ -1,0 +1,348 @@
+:root {
+  --color-primary: #fe5226;
+  --color-secondary: #9b9b9b;
+  --color-accent: #9D7C7C;
+  --color-shadow: #F4F4F3;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Noto Serif TC', serif;
+}
+
+[data-en] {
+  font-family: 'EB Garamond', serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+body {
+  position: relative;
+  margin: 0px;
+  background: #000;
+}
+
+.focus-box {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.238);
+}
+
+.focus {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  --cz-gutter-x: 2rem;
+  --cz-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--cz-gutter-x) * .5);
+  padding-left: calc(var(--cz-gutter-x) * .5);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header {
+  position: sticky;
+  top: 10px;
+  top: 0;
+  padding: 10px;
+  z-index: 1;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 20px;
+}
+
+nav .left-part,
+nav .right-part {
+  flex-basis: calc(50% - 50px);
+}
+
+.header-menu {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu-item {
+  list-style: none;
+  font-size: 16px;
+  color: var(--color-primary);
+}
+
+.menu-item a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
+}
+
+.middle-part {
+  flex-basis: 80px;
+}
+
+.header-top-line,
+.header-bottom-line {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.header-top-line img,
+.header-bottom-line img {
+  width: 20px;
+  margin: 0 10px;
+  position: relative;
+}
+
+.header-top-line::before,
+.header-top-line::after,
+.header-bottom-line::before,
+.header-bottom-line::after {
+  content: "";
+  height: 1px;
+  background-color: var(--color-primary);
+}
+
+.header-top-line::before,
+.header-bottom-line::after {
+  width: 20px;
+}
+
+.header-top-line::after {
+  width: 100%;
+}
+
+.header-bottom-line::before {
+  width: calc(100% - 40px);
+}
+
+section.hero-banner {
+  position: relative;
+  height: 100vh;
+  margin-top: -116.75px;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/banner.jpg");
+  background-size: cover;
+  background-position: top center;
+  will-change: transform;
+  /* 提升效能 */
+  transform-origin: center center;
+}
+
+.name-img {
+  width: 20vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+[data-spotlight] {
+  /* display: inline-block; */
+  /* --spotlight-x: 0px;
+  --spotlight-y: 0px;
+  --spotlight-radius: 150px;
+  background-image: radial-gradient(circle 600px at -999px -999px, #fff 0%, rgba(255, 255, 255, 0) 80%), linear-gradient(#9b9b9b, #9b9b9b);
+  background-repeat: no-repeat, repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  will-change: background-image; */
+  color: var(--color-secondary);
+}
+
+#arrow-down {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  animation: bounce 2s ease infinite;
+}
+
+@keyframes bounce {
+
+  0%,
+  20%,
+  53%,
+  80%,
+  100% {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate(0, 0);
+  }
+
+  40%,
+  43% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate(0, -30px);
+  }
+
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate(0, -15px);
+  }
+
+  90% {
+    transform: translate(0, -4px);
+  }
+}
+
+.wedding-character {
+  max-height: 100vh;
+  position: relative;
+  padding: 116.75px 4% 4%;
+  display: flex;
+}
+
+#character-groom-bride {
+  flex-basis: 35vw;
+  padding: 0 2%;
+
+}
+#character-groom-bride img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.groom-part,
+.bride-part {
+  flex-basis: calc(50% - 17.5vw);
+  display: flex;
+  justify-content: center;
+}
+.groom-part{
+  align-self: end;
+}
+.bride-part > div{
+  display: flex;
+  flex-direction: column;
+}
+.bride-part  .character-title{
+  text-align: end;
+}
+.character-title{
+  font-size: clamp(1.5rem, 0rem + 3.125vw, 3.75rem);
+}
+.name-title{
+  font-size: clamp(2rem, 0rem + 4.1667vw, 5rem);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+.name-title>span{
+  color: var(--color-secondary);
+  font-weight: 500;
+
+}
+.hash-tags{
+  margin: 0;
+  padding: 0;
+}
+.hash-tags li{
+  list-style: none;
+  font-size: clamp(1rem, 0.4167rem + 1.2153vw, 1.875rem);
+  color: var(--color-secondary);
+}
+
+
+
+@media(min-width: 768px) {
+  .mobile {
+    display: none;
+  }
+
+  .groom-part,
+  .bride-part {
+    height: 100%;
+  }
+}
+
+@media(max-width: 767px) {
+  .desktop {
+    display: none;
+  }
+
+  .hero-bg {
+    background-image: url("../img/banner-mobile.jpg");
+    background-position: center;
+  }
+  .name-img {
+    width: 60vw;
+  }
+  .wedding-character{
+    max-height: unset;
+    flex-wrap: wrap;
+  }
+
+  .groom-part{
+    margin-top: -50px;
+    flex-basis: 100%;
+    justify-content: start;
+    order: 3;
+  }
+  .groom-part .character-title{
+    order: -1;
+  }
+  .bride-part{
+    margin-bottom: -50px;
+    flex-basis: 100%;
+    justify-content: end;
+    order: 1;
+  }
+  .bride-part  .character-title{
+    order: 2;
+  }
+  #character-groom-bride {
+    padding: 0;
+    flex-basis: 100%;
+    order: 2;
+  }
+  #character-groom-bride img{
+    max-height: 80vh;
+  }
+  .character-title{
+    font-size: clamp(1.46484375rem, -0.0036rem + 6.5264vw, 3.125rem);
+  }
+  .name-title{
+    font-size: clamp(2.34375rem, -0.0058rem + 10.4423vw, 5rem);
+  }
+  .hash-tags li{
+    font-size: clamp(0.87890625rem, -0.0022rem + 3.9158vw, 1.875rem);
+  }
+}

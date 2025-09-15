@@ -1,11 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=EB+Garamond:wght@400;700&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
-  <h1>hello</h1>
+  <div class="focus-box">
+    <div class="focus"></div>
+  </div>
+
+  <header class="container">
+    <div class="header-top-line"><img src="./img/header-num.svg" alt=""></div>
+    <nav>
+      <div class="left-part">
+        <!-- <ul class="header-menu">
+          <li class="menu-item"><a data-en href="#character">Character</a></li>
+        </ul> -->
+      </div>
+      <div class="middle-part"><img src="./img/2025.svg" alt=""></div>
+      <div class="right-part"></div>
+    </nav>
+    <div class="header-bottom-line"><img src="./img/menu-btn.svg" alt=""></div>
+  </header>
+  <section class="hero-banner">
+    <div class="hero-bg "></div>
+    <!-- <img class="banner-img desktop" src="./img/banner.jpg" alt=""> -->
+    <!-- <img class="banner-img mobile" src="./img/banner-mobile.jpg" alt=""> -->
+    <img class="name-img" src="./img/name.svg" alt="">
+    <a id="arrow-down" href="#character"><img src="./img/arrow-down.svg" alt=""></a>
+  </section>
+  <section id="character" class="container wedding-character">
+    <div class="groom-part">
+      <div>
+        <h2 class="character-title" data-spotlight data-en>GROOM</h2>
+        <h1 class="name-title" data-spotlight>威融 <span data-en>William</span></h1>
+        <ul class="hash-tags">
+          <li>#雙子座</li>
+          <li>#社會觀察大師</li>
+          <li>#吃貨老婆養成計劃</li>
+        </ul>
+      </div>
+    </div>
+    <div id="character-groom-bride">
+      <img src="./img/character.png" alt="">
+    </div>
+    <div class="bride-part">
+      <div>
+        <h2 class="character-title" data-spotlight data-en>BRIDE</h2>
+        <h1 class="name-title" data-spotlight>玟君 <span data-en>Léa</span></h1>
+        <ul class="hash-tags">
+          <li>#雙魚座</li>
+          <li>#吃吃探險家</li>
+          <li>#老公潛能開發計劃</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="./js/custom.js"></script>
+
+  </script>
 </body>
+
 </html>
