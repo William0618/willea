@@ -196,10 +196,10 @@ section.hero-banner {
 /* End of hero banner */
 
 /* character section */
-.wedding-character {
+#character {
   max-height: 100vh;
   position: relative;
-  padding: 102.6px 4% 4%;
+  padding: 102.6px 4%;
   display: flex;
 }
 
@@ -259,7 +259,60 @@ section.hero-banner {
 
 /* End of character section */
 
+/* getting-married */
 
+#getting-married{
+  position: relative;
+  width: 100%;
+  padding: 102.6px 4% 0;
+  max-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: #FFF;
+}
+
+.getting-married-title{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  position: absolute;
+  top: 102.6px;
+  /* left: 50%;
+  transform: translateX(-50%); */
+  font-size: clamp(3.75rem, 0rem + 7.8125vw, 9.375rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-secondary);
+  text-align: center;
+}
+.getting-married-title span{
+  font-size: clamp(6.5rem, 0rem + 13.5417vw, 16.25rem);
+  color: var(--color-primary);
+}
+.getting-married-img{
+  width: 50vw;
+  z-index: 1;
+}
+.getting-married-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* End of getting-married */
+
+/* wedding-info */
+#wedding-info{
+  display: flex;
+}
+#wedding-info .left-part,
+#wedding-info .right-part{
+  flex-basis: 50%;
+}
+
+/* End ofwedding-info */
 
 @media(min-width: 768px) {
   .mobile {
@@ -276,7 +329,7 @@ section.hero-banner {
   .desktop {
     display: none;
   }
-
+  /* hero section */
   .hero-bg {
     background-image: url("../img/banner-mobile.webp");
     background-position: center;
@@ -288,7 +341,10 @@ section.hero-banner {
   #arrow-down {
     bottom: 70px;
   }
-  .wedding-character{
+  /* End of hero section */
+
+  /* character section */
+  #character{
     max-height: unset;
     flex-wrap: wrap;
   }
@@ -327,5 +383,24 @@ section.hero-banner {
   }
   .hash-tags li{
     font-size: clamp(0.87890625rem, -0.0022rem + 3.9158vw, 1.875rem);
+  }
+
+  /* End of character section */
+
+  /* getting-married */
+  #getting-married{
+    position: relative;
+    width: 100%;
+    padding: 102.6px 4% 0;
+    max-height: unset;
+  }
+  .getting-married-img{
+    width: 100%;
+  }
+  .getting-married-title{
+    font-size: clamp(2.5rem, -0.2641rem + 12.285vw, 5.625rem);
+  }
+  .getting-married-title span{
+    font-size: clamp(4.6875rem, -0.0115rem + 20.8845vw, 10rem);
   }
 }
