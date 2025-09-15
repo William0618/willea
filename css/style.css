@@ -305,6 +305,9 @@ section.hero-banner {
   .name-img {
     width: 60vw;
   }
+  #arrow-down {{
+    bottom: 50px;
+  }
   .wedding-character{
     max-height: unset;
     flex-wrap: wrap;
