@@ -60,7 +60,7 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
-
+/* header */
 header {
   position: sticky;
   top: 10px;
@@ -70,41 +70,10 @@ header {
 }
 
 nav {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-  gap: 20px;
+  text-align: center;
 }
-
-nav .left-part,
-nav .right-part {
-  flex-basis: calc(50% - 50px);
-}
-
-.header-menu {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-  gap: 20px;
-}
-
-.menu-item {
-  list-style: none;
-  font-size: 16px;
-  color: var(--color-primary);
-}
-
-.menu-item a {
-  text-decoration: none;
-  color: inherit;
-  font-weight: 600;
-}
-
-.middle-part {
-  flex-basis: 80px;
+nav img {
+  width: 80px;
 }
 
 .header-top-line,
@@ -143,11 +112,13 @@ nav .right-part {
 .header-bottom-line::before {
   width: calc(100% - 40px);
 }
+/* End of header */
 
+/* hero banner */
 section.hero-banner {
   position: relative;
   height: 100vh;
-  margin-top: -116.75px;
+  margin-top: -102.6px;
   overflow: hidden;
 }
 
@@ -222,11 +193,13 @@ section.hero-banner {
     transform: translate(0, -4px);
   }
 }
+/* End of hero banner */
 
+/* character section */
 .wedding-character {
   max-height: 100vh;
   position: relative;
-  padding: 116.75px 4% 4%;
+  padding: 102.6px 4% 4%;
   display: flex;
 }
 
@@ -248,20 +221,24 @@ section.hero-banner {
   justify-content: center;
 }
 .groom-part{
+  justify-content: end;
   align-self: end;
 }
 .bride-part > div{
   display: flex;
   flex-direction: column;
 }
-.bride-part  .character-title{
+.bride-part{
+  justify-content: start;
+}
+.bride-part .character-title{
   text-align: end;
 }
 .character-title{
-  font-size: clamp(1.5rem, 0rem + 3.125vw, 3.75rem);
+  font-size: clamp(1.25rem, 0rem + 2.6042vw, 3.125rem);
 }
 .name-title{
-  font-size: clamp(2rem, 0rem + 4.1667vw, 5rem);
+  font-size: clamp(1.75rem, 0rem + 3.6458vw, 4.375rem);
   font-weight: 600;
   color: var(--color-primary);
 }
@@ -276,9 +253,11 @@ section.hero-banner {
 }
 .hash-tags li{
   list-style: none;
-  font-size: clamp(1rem, 0.4167rem + 1.2153vw, 1.875rem);
+  font-size: clamp(0.75rem, 0rem + 1.5625vw, 1.875rem);
   color: var(--color-secondary);
 }
+
+/* End of character section */
 
 
 
@@ -304,9 +283,10 @@ section.hero-banner {
   }
   .name-img {
     width: 60vw;
+    top: calc(50% - 51.3px);
   }
   #arrow-down {
-    bottom: 50px;
+    bottom: 70px;
   }
   .wedding-character{
     max-height: unset;
@@ -323,7 +303,7 @@ section.hero-banner {
     order: -1;
   }
   .bride-part{
-    margin-bottom: -50px;
+    margin-bottom: -90px;
     flex-basis: 100%;
     justify-content: end;
     order: 1;

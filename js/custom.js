@@ -36,28 +36,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 假設在頁面載入後執行 (類似 bundle.js 的 webpackBootstrap)
-  document.addEventListener('DOMContentLoaded', function () {
-    const spotlightElements = document.querySelectorAll('[data-spotlight]');
-    const gradients = {
-      gradient1: 'linear-gradient(135deg, #1e3c72, #2a5298)',  // 預設
-      gradient2: 'linear-gradient(135deg, #ff6b6b, #ee5a24)',  // hover 變動
-      // 可從 JSON data-es.json 的 images 動態載入顏色
-    };
+  // // 假設在頁面載入後執行 (類似 bundle.js 的 webpackBootstrap)
+  // document.addEventListener('DOMContentLoaded', function () {
+  //   const spotlightElements = document.querySelectorAll('[data-spotlight]');
+  //   const gradients = {
+  //     gradient1: 'linear-gradient(135deg, #1e3c72, #2a5298)',  // 預設
+  //     gradient2: 'linear-gradient(135deg, #ff6b6b, #ee5a24)',  // hover 變動
+  //     // 可從 JSON data-es.json 的 images 動態載入顏色
+  //   };
 
-    spotlightElements.forEach(el => {
-      // 滑鼠移入：變換背景
-      el.addEventListener('mouseenter', function (e) {
-        const gradientKey = e.target.getAttribute('data-spotlight');
-        const newGradient = gradients[gradientKey] || gradients.gradient2;
-        document.body.style.background = newGradient;
+  //   spotlightElements.forEach(el => {
+  //     // 滑鼠移入：變換背景
+  //     el.addEventListener('mouseenter', function (e) {
+  //       const gradientKey = e.target.getAttribute('data-spotlight');
+  //       const newGradient = gradients[gradientKey] || gradients.gradient2;
+  //       document.body.style.background = newGradient;
 
-      });
+  //     });
 
-      // 滑鼠移出：恢復預設
-      el.addEventListener('mouseleave', function () {
-        document.body.style.background = gradients.gradient1;
-      });
-    });
-  });
+  //     // 滑鼠移出：恢復預設
+  //     el.addEventListener('mouseleave', function () {
+  //       document.body.style.background = gradients.gradient1;
+  //     });
+  //   });
+  // });
 });
