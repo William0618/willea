@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
 
   gsap.to(".hero-bg", {
     scale: 1.1,       // 放大倍數
@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
       pin: true
     }
   });
+
   let focus = document.querySelector(".focus");
 
   document.addEventListener("mousemove", function (e) {
@@ -35,7 +36,36 @@ document.addEventListener("DOMContentLoaded", () => {
       ease: "power2.out"
     });
   });
+  // let tl = gsap.timeline({
+  //   ease: "power3.out", // 或 "power3.out"
 
+  //   scrollTrigger: {
+  //     trigger: "#photo-gallery",
+  //     start: "top 20%",   // section 進入視窗 80% 高度時開始
+  //     end: "bottom 50%",  // section 滾出頂端時結束
+  //     scrub: true,        // 跟隨滾動
+  //     // markers: true,      // 可設 true 來 debug
+  //   },
+
+
+  // });
+
+
+  // tl.fromTo(document.querySelectorAll("#photo-gallery figure")[0], 
+  //   { yPercent: 100 }, 
+  //   {yPercent: -1200, duration: 90},
+  //   // "<"
+  // );
+  // tl.fromTo(document.querySelectorAll("#photo-gallery figure")[1], 
+  //   { yPercent: -300 }, 
+  //   {yPercent: -1200, duration: 90},
+  //   // "-=95"
+  // );
+  // tl.fromTo(document.querySelectorAll("#photo-gallery figure")[2], 
+  //   { yPercent: -350 }, 
+  //   {yPercent: -1200, duration: 90},
+  //   "-=90"
+  // );
   // // 假設在頁面載入後執行 (類似 bundle.js 的 webpackBootstrap)
   // document.addEventListener('DOMContentLoaded', function () {
   //   const spotlightElements = document.querySelectorAll('[data-spotlight]');
