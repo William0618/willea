@@ -64,9 +64,8 @@ body {
 /* header */
 header {
   position: sticky;
-  top: 10px;
   top: 0;
-  padding: 10px;
+  padding: 20px;
   z-index: 999;
 }
 
@@ -119,7 +118,7 @@ nav img {
 section.hero-banner {
   position: relative;
   height: 100vh;
-  margin-top: -102.6px;
+  margin-top: -122.6px;
   overflow: hidden;
 }
 
@@ -201,9 +200,9 @@ section.hero-banner {
 #getting-married{
   height: 100vh;
   position: relative;
-  padding: 102.6px 4% 0;
+  padding: 122.6px 6% 0;
   background: linear-gradient(180deg, #fff, #fdf7f4);
-  z-index: -1;
+  /* z-index: -1; */
 }
 #getting-married > div{
   width: 100%;
@@ -259,24 +258,28 @@ section.hero-banner {
 
 /* character section */
 #character {
+  width: 100vw;
   height: 100vh;
   position: relative;
-  padding: 102.6px 4%;
+  padding: 122.6px 6%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 20px;
   background: linear-gradient(180deg, #fff, #fdf7f4);
+  overflow: hidden;
+
   /* background: #000; */
-  z-index: -1;
+  /* z-index: -1; */
 }
 
 .character-img{
   flex-basis: 30%;
   height: 100%;
+  /* margin: calc( 154.78px + 20px) auto; */
   aspect-ratio: 150 / 225;
   box-shadow: 2px 4px 12px rgba(0,0,0,0.1);
-
+  z-index: 1;
 }
 .character-img img {
   width: 100%;
@@ -287,11 +290,21 @@ section.hero-banner {
 
 .groom-part,
 .bride-part {
-  flex-basis: 35%;
+  position: absolute;
+  width: 31.25vw;
+  object-fit: cover;
   display: flex;
   justify-content: center;
 }
-
+.groom-part {
+  left: -2%;
+}
+.bride-part {
+  right: -2%;
+}
+/* .intro-text{
+  width: 180px;
+} */
 .intro-text h2 {
   font-family: 'EB Garamond', serif;
   font-size: 14px;
@@ -338,7 +351,7 @@ section.hero-banner {
   background-color: #000000;
 }
 .gallery-img{
-  margin-bottom: 10vw;
+  margin-bottom: 6vw;
   z-index: 1;
   width: 100%;
 }
@@ -394,7 +407,7 @@ section.hero-banner {
   /* getting-married */
   #getting-married{
     width: 100%;
-    padding: 102.6px 4% 0;
+    padding: 122.6px 4% 0;
     max-height: unset;
   }
   #getting-married > div{
@@ -418,12 +431,9 @@ section.hero-banner {
     height: unset;
     flex-wrap: wrap;
   }
-  .bride-part,
-  .groom-part,
+
   .character-img{
     flex-basis: 100%;
-  }
-  .character-img{
     aspect-ratio: unset;
     text-align: center;
     box-shadow: unset;
@@ -435,6 +445,25 @@ section.hero-banner {
     object-fit: cover;
     object-position: bottom center;
     box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  .groom-part,
+  .bride-part{
+    flex-basis: 100%;
+    position: relative;
+    height: 160px;
+    left: unset;
+    right: unset;
+  }
+  .groom-part .intro-text{
+    position: absolute;
+    bottom: 20px;
+  }
+  .bride-part .intro-text{
+    position: absolute;
+    top: 10px;
+  }
+  .intro-text{
+    width: 180px;
   }
   .intro-text h2{
     text-align: start;
@@ -448,5 +477,3 @@ section.hero-banner {
   
 
 }
-
-

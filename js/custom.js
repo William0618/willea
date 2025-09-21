@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  
-  gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
+
+  gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
   gsap.to(".hero-bg", {
     scale: 1.1,       // 放大倍數
@@ -14,15 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  let focus = document.querySelector(".focus");
+  // let focus = document.querySelector(".focus");
 
-  document.addEventListener("mousemove", function (e) {
-    let x = e.pageX;
-    let y = e.pageY;
+  // document.addEventListener("mousemove", function (e) {
+  //   let x = e.pageX;
+  //   let y = e.pageY;
 
-    focus.style.background = "radial-gradient(circle at " + x + "px " + y + 'px ,rgba(190, 255, 255, 0.2), transparent 40%)';
+  //   focus.style.background = "radial-gradient(circle at " + x + "px " + y + 'px ,rgba(190, 255, 255, 0.2), transparent 40%)';
 
-  });
+  // });
   // 滑鼠移動視差 (hero 文字微偏移)
   const heroContent = document.querySelector(".name-img");
   document.addEventListener("mousemove", e => {
@@ -36,58 +36,111 @@ document.addEventListener("DOMContentLoaded", () => {
       ease: "power2.out"
     });
   });
-  // let tl = gsap.timeline({
-  //   ease: "power3.out", // 或 "power3.out"
-
+  // gsap.to("#photo-gallery .gallery-img img", {
+  //   y: -150,
+  //   ease: "none",
   //   scrollTrigger: {
   //     trigger: "#photo-gallery",
-  //     start: "top 20%",   // section 進入視窗 80% 高度時開始
-  //     end: "bottom 50%",  // section 滾出頂端時結束
-  //     scrub: true,        // 跟隨滾動
-  //     // markers: true,      // 可設 true 來 debug
-  //   },
-
-
+  //     start: "top bottom",
+  //     end: "bottom top",
+  //     scrub: true
+  //   }
   // });
 
-
-  // tl.fromTo(document.querySelectorAll("#photo-gallery figure")[0], 
-  //   { yPercent: 100 }, 
-  //   {yPercent: -1200, duration: 90},
-  //   // "<"
-  // );
-  // tl.fromTo(document.querySelectorAll("#photo-gallery figure")[1], 
-  //   { yPercent: -300 }, 
-  //   {yPercent: -1200, duration: 90},
-  //   // "-=95"
-  // );
-  // tl.fromTo(document.querySelectorAll("#photo-gallery figure")[2], 
-  //   { yPercent: -350 }, 
-  //   {yPercent: -1200, duration: 90},
-  //   "-=90"
-  // );
-  // // 假設在頁面載入後執行 (類似 bundle.js 的 webpackBootstrap)
-  // document.addEventListener('DOMContentLoaded', function () {
-  //   const spotlightElements = document.querySelectorAll('[data-spotlight]');
-  //   const gradients = {
-  //     gradient1: 'linear-gradient(135deg, #1e3c72, #2a5298)',  // 預設
-  //     gradient2: 'linear-gradient(135deg, #ff6b6b, #ee5a24)',  // hover 變動
-  //     // 可從 JSON data-es.json 的 images 動態載入顏色
-  //   };
-
-  //   spotlightElements.forEach(el => {
-  //     // 滑鼠移入：變換背景
-  //     el.addEventListener('mouseenter', function (e) {
-  //       const gradientKey = e.target.getAttribute('data-spotlight');
-  //       const newGradient = gradients[gradientKey] || gradients.gradient2;
-  //       document.body.style.background = newGradient;
-
-  //     });
-
-  //     // 滑鼠移出：恢復預設
-  //     el.addEventListener('mouseleave', function () {
-  //       document.body.style.background = gradients.gradient1;
-  //     });
-  //   });
+  // const tl = gsap.timeline({
+  //   scrollTrigger: {
+  //     trigger: "#photo-gallery",
+  //     start: "top top",     // 捲到頂端觸發
+  //     end: "+=1000",        // 區塊總長度
+  //     scrub: true,          // 跟著滾動
+  //     pin: true,            // 固定在畫面
+  //     anticipatePin: 1
+  //   }
   // });
+
+  // // 每張照片依序浮現 + 往上滾走
+  // tl.fromTo("#photo-gallery .gallery-img:nth-of-type(1)", 
+  //   { yPercent: 100,}, 
+  //   { yPercent: -200, opacity: 1, duration: 5 }, "<+0.5");
+
+  // tl.fromTo("#photo-gallery .gallery-img:nth-of-type(2)", 
+  //   { yPercent: 100,}, 
+  //   { yPercent: -200, opacity: 1, duration: 5 }, "<+1");
+
+  // tl.fromTo("#photo-gallery .gallery-img:nth-of-type(3)", 
+  //   { yPercent: 100,}, 
+  //   { yPercent: -200, opacity: 1, duration: 5 }, "<+1.5");
+  // gsap.to("#character", {
+  //   scrollTrigger: {
+  //     scroller: "body",
+  //     start: "top 10%",
+  //     end: "top -100%",
+  //     trigger: "#character",
+  //     pin: true,
+  //     scrub: 2,
+  //   }
+  // });
+  let mm = gsap.matchMedia();
+  // 桌機（>=768px）做 X 軸
+  mm.add("(min-width: 768px)", () => {
+    gsap.from(".groom-part", {
+      xPercent: 100,
+      rotate: 0,
+      opacity: 0,
+      scrollTrigger: {
+        scroller: "body",
+        start: "top 100%",
+        end: "top 0",
+        trigger: ".groom-part",
+        scrub: 2,
+        // markers: true,
+
+      }
+    });
+
+    gsap.from(".bride-part", {
+      xPercent: -100,
+      rotate: 0,
+      opacity: 0,
+      scrollTrigger: {
+        scroller: "body",
+        start: "top 100%",
+        end: "top 0%",
+        trigger: ".bride-part",
+        scrub: 2,
+        markers: true,
+
+      }
+    });
+  });
+
+
+
+  // 手機（<768px）做 Y 軸
+  mm.add("(max-width: 767px)", () => {
+    gsap.from(".groom-part .intro-text", {
+      y: 80,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".groom-part .intro-text",
+        start: "top 100%",
+        end: "top 0%",
+        scrub: 2,
+        // markers: true,
+      },
+    });
+
+    gsap.from(".bride-part .intro-text", {
+      y: -80,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".bride-part .intro-text",
+        start: "top 100%",
+        end: "top 50%",
+        scrub: 2,
+        // markers: true,
+      }
+    });
+  });
+  
 });
