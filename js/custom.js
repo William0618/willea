@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
         end: "top 0%",
         trigger: ".bride-part",
         scrub: 2,
-        markers: true,
+        // markers: true,
 
       }
     });
