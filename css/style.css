@@ -58,12 +58,11 @@ header nav .right-part {
 
 header nav .right-part {
   padding: 10px;
-  background-color: var(--color-bg);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: var(--color-bg);
   border-bottom: 1px solid var(--color-primary);
-  
 }
 
 .menu-btn {
@@ -129,7 +128,7 @@ header nav .right-part {
 
 #hero .right-part img {
   width: 40%;
-  margin-bottom: 20px;
+  margin: 70px auto 20px;
   /* position: absolute;
   top: 50%;
   left: 50%;
@@ -173,6 +172,26 @@ header nav .right-part {
 }
 
 /*End of hero part */
+
+/* save-the-date */
+#save-the-date {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+#save-the-date > h1 {
+  font-family: 'EB Garamond', serif;
+  font-size: 10px;
+  color: var(--color-bg);
+  scale: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* End of save-the-date */
 
 /* #invitation */
 
@@ -240,7 +259,7 @@ header nav .right-part {
 
 
 /* character section */
-#character {
+/* #character {
   width: 100vw;
   height: 100vh;
   position: relative;
@@ -249,32 +268,25 @@ header nav .right-part {
   align-items: center;
   justify-content: center;
   gap: 20px;
-  /* background: linear-gradient(180deg, #fff, #fdf7f4); */
-  /* background-color: var(--color-secondary); */
-  overflow: hidden;
 
-  /* background: #000; */
-  /* z-index: -1; */
+  overflow: hidden;
 }
 
 .character-img {
-  flex-basis: 30%;
+  flex-basis: 50%;
   height: 100%;
-  /* margin: calc( 154.78px + 20px) auto; */
-  aspect-ratio: 150 / 225;
-  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.1);
   z-index: 1;
 }
 
 .character-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 }
 
-.bride-part,
-.groom-part {
+#character .bride-part,
+#character .groom-part {
   position: absolute;
   width: 31.25vw;
   object-fit: cover;
@@ -282,14 +294,72 @@ header nav .right-part {
   justify-content: center;
 }
 
-.bride-part {
+#character .bride-part {
+  left: -0%;
+}
+
+#character .groom-part {
+  right: -0%;
+} */
+
+
+
+
+
+#character {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 13vh;
+  position: relative;
+  overflow: hidden;
+}
+#character > h3 {
+  font-family: mint;
+  font-size: 12px;
+  font-weight: 900;
+}
+#character > h3 > svg {
+  margin: 0px 25px;
+}
+.character-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vh;
+}
+#character > .character-content > h1 {
+  font-family: rose;
+  font-size: 5.104vw;
+  font-weight: 500;
+  text-align: center;
+}
+
+.groom-img {
+  position: absolute;
+  width: 31.25vw;
+  height: 80%;
+  object-fit: cover;
+  object-position: 75% center;
+  z-index: 154;
   left: -2%;
+  rotate: -4deg;
+  border-radius: 35px;
 }
 
-.groom-part {
+.brige-img {
+  position: absolute;
+  width: 31.25vw;
+  height: 80%;
+  object-fit: cover;
+  object-position: 15% center;
+  z-index: 152;
   right: -2%;
+  rotate: 4deg;
+  border-radius: 35px;
 }
-
 .intro-text h2 {
   font-family: 'EB Garamond', serif;
   font-size: 14px;
@@ -310,8 +380,339 @@ header nav .right-part {
   line-height: 1.6;
   text-align: start;
 }
-
 /* End of character section */
+
+/* wedding-info */
+#wedding-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5%;
+  padding: 8% 4%;
+  background: linear-gradient(180deg, #fff, var(--color-shadow));
+}
+
+#wedding-info .info-text {
+  flex-basis: 50%;
+  font-family: "EB Garamond", serif;
+  color: var(--color-secondary);
+  line-height: 1.8;
+}
+
+#wedding-info h2 {
+  font-size: 2.2rem;
+  color: var(--color-primary);
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+#wedding-info .date {
+  font-size: 1.4rem;
+  color: var(--color-accent);
+  margin-bottom: 10px;
+}
+
+#wedding-info .time {
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+#wedding-info h3 {
+  margin-top: 25px;
+  color: var(--color-primary);
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+#wedding-info .address {
+  margin-top: 6px;
+  color: var(--color-secondary);
+}
+
+#wedding-info .map-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--color-accent);
+  text-decoration: underline;
+  transition: color 0.3s, opacity 0.3s;
+}
+
+#wedding-info .map-link:hover {
+  color: var(--color-primary);
+  opacity: 0.8;
+}
+
+#wedding-info .transport {
+  margin-top: 30px;
+  font-size: 0.95rem;
+}
+
+#wedding-info .info-image {
+  flex-basis: 45%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+#wedding-info .info-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* End of weddings-info */
+
+#guest-messages {
+  background: var(--color-shadow);
+  padding: 100px 5%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#guest-messages h2 {
+  color: var(--color-primary);
+  font-size: 2.2rem;
+  margin-bottom: 60px;
+  letter-spacing: 2px;
+}
+
+.letters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  perspective: 800px;
+}
+
+.letter {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 8px;
+  padding: 20px 30px;
+  width: 250px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  text-align: left;
+  transform: rotate(var(--r));
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'EB Garamond', serif;
+}
+
+.letter:hover {
+  transform: rotate(0deg) scale(1.05);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+}
+
+.letter p {
+  color: var(--color-secondary);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.letter span {
+  color: var(--color-accent);
+  font-style: italic;
+  display: block;
+  text-align: right;
+}
+
+/* #guest-bubbles {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-image: url("../img/LIMIYA1140417(161).webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 70px 2%;
+  overflow: hidden;
+}
+
+#guest-bubbles h2 {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 60px;
+}
+
+.bubbles {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.bubble {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  padding: 30px;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--color-primary);
+  backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: inset 4px 4px 10px rgba(255,255,255,0.3),
+              inset -4px -4px 10px rgba(0,0,0,0.1),
+              0 10px 20px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  overflow-wrap: break-word;
+ 
+  overflow: hidden;
+}
+
+.bubble:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+} */
+
+#guest-bubbles {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: url("../img/LIMIYA1140417(161).webp") center center / cover no-repeat;
+  filter: brightness(0.95) saturate(1.1);
+}
+
+#guest-bubbles::before {
+  /* 模糊濾鏡層 */
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.25);
+  z-index: 1;
+}
+
+.bubbles {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.bubble {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #333;
+  text-align: center;
+  padding: 12px;
+  overflow-wrap: break-word;
+  user-select: none;
+  pointer-events: none;
+  line-height: 1.3;
+  font-size: 14px;
+
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+  box-shadow:
+    0 6px 25px rgba(0,0,0,0.05),
+    inset 0 0 12px rgba(255,255,255,0.5),
+    inset 5px 5px 20px rgba(255,255,255,0.3),
+    inset -5px -5px 10px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
+  background-image: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0.3)),
+                    radial-gradient(circle at 70% 70%, rgba(255,0,150,0.15), rgba(0,200,255,0.15));
+  backdrop-filter: blur(3px);
+  transition: transform 0.3s ease-out;
+  overflow: hidden;
+}
+
+
+
+
+
+/* countdown */
+#countdown {
+  text-align: center;
+  padding: 80px 4%;
+  background: linear-gradient(180deg, #fff, #fdf7f4);
+  color: var(--color-primary);
+}
+
+#countdown h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+}
+
+.countdown-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.time-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.time-box span {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--color-accent);
+  min-width: 70px;
+}
+
+.time-box small {
+  font-size: 0.9rem;
+  color: var(--color-secondary);
+  margin-top: 5px;
+}
+
+.countdown-text {
+  margin-top: 40px;
+  font-size: 1.1rem;
+  color: var(--color-secondary);
+  letter-spacing: 1px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 4%;
+  color: #404040;
+  background-color: #f6f6f6;
+  font-size: 14px;
+}
+footer img{
+  height: 30px;
+}
+/* 手機版 */
+@media (max-width: 768px) {
+  #wedding-info {
+    flex-direction: column;
+    text-align: center;
+    padding: 12% 6%;
+  }
+
+  #wedding-info .info-text,
+  #wedding-info .info-image {
+    flex-basis: 100%;
+  }
+
+  #wedding-info .info-image {
+    margin-top: 30px;
+  }
+}
+
+
+/* End of wedding info */
+
 @media (max-width: 767px) {
 
   /* header part */
@@ -392,7 +793,7 @@ header nav .right-part {
     background-color: rgba(255, 255, 255, 0.074);
   }
   /* character section */
-  #character {
+  /* #character {
     height: unset;
     flex-wrap: wrap;
   }
@@ -412,8 +813,8 @@ header nav .right-part {
     box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.1);
   }
 
-  .bride-part,
-  .groom-part {
+  #character .bride-part,
+  #character .groom-part {
     flex-basis: 100%;
     position: relative;
     height: 160px;
@@ -421,27 +822,35 @@ header nav .right-part {
     right: unset;
   }
 
-  .bride-part .intro-text {
+  #character .bride-part .intro-text {
     position: absolute;
     bottom: 20px;
   }
 
-  .groom-part .intro-text {
+  #character .groom-part .intro-text {
     position: absolute;
     top: 10px;
   }
 
-  .intro-text {
+  #character .intro-text {
     width: 180px;
   }
 
-  .intro-text h2 {
+  #character .intro-text h2 {
     text-align: start;
   }
 
-  .intro-text p {
+  #character .intro-text p {
     margin: 0;
-  }
+  } */
 
   /* End of character section */
+  .countdown-wrapper{
+    gap: 25px;
+  }
+  #guest-bubbles {
+    height: 150vh;
+    background-image: url("../img/LIMIYA1140417(163).webp");
+    background-position: bottom center;
+  }
 }
