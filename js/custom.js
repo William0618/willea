@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ease: "power3.out",
       scrollTrigger: {
         trigger: el,
-        start: "top 50%",      // 元素頂端到達視窗 85% 高度時觸發
+        start: "top 85%",      // 元素頂端到達視窗 85% 高度時觸發
         end: "top 60%",
         toggleActions: "play none none reverse",
         // scrub: true, // 想要隨捲動平滑追蹤可開啟 scrub
@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ease: "power3.out",
     scrollTrigger: {
       trigger: "#invitation p",
-      start: "top 65%",  // 當段落頂端接近視窗底部時觸發
+      start: "top 70%",  // 當段落頂端接近視窗底部時觸發
       toggleActions: "play none none reverse"
     }
   });
@@ -302,28 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
   });
-  // document.querySelectorAll(".bubble").forEach(bubble => {
-  //   // 隨機大小（80～160px）
-  //   const size = gsap.utils.random(80, 160);
-  //   bubble.style.width = size + "px";
-  //   bubble.style.height = size + "px";
 
-  //   // 隨機初始 Y 位移（-50～50px）
-  //   const offsetY = gsap.utils.random(-50, 50);
-  //   gsap.set(bubble, { y: offsetY });
-
-  //   // 建立滾動觸發的漂浮動畫
-  //   gsap.to(bubble, {
-  //     y: offsetY + gsap.utils.random(-50, 50),
-  //     ease: "sine.inOut",
-  //     scrollTrigger: {
-  //       trigger: "#guest-bubbles",
-  //       start: "top bottom",
-  //       end: "bottom top",
-  //       scrub: 1.5,
-  //     }
-  //   });
-  // });
   const weddingDate = new Date("2025-11-29T12:09:30+08:00").getTime();
   const timer = setInterval(updateCountdown, 1000);
   updateCountdown();
@@ -334,7 +313,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (distance <= 0) {
       document.getElementById("countdown").innerHTML = `
         <h2>It's Our Wedding Day! 🎉</h2>
-        <p class="countdown-text">感謝您的祝福，讓愛延續 ❤️</p>
+        <p class="countdown-text">感謝你的祝福，讓愛延續 ❤️</p>
       `;
       clearInterval(timer);
       return;
@@ -351,139 +330,238 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
   }
 
-  // const API_URL = 'http://220.128.133.15/s1090419/wedding/api.php';
-
+  
+  const API_URL = './data/comments.json';
+  const container = document.querySelector('#guest-bubbles .bubbles');
+  let bubblesArr = [];
+  fetchComments();
+  window.addEventListener('resize', () => {
+    fetchComments();
+  });
   // fetch(API_URL)
   //   .then(res => res.json())
   //   .then(result => {
-  //     const data = result.data;
-  //     if (!data || data.length === 0) {
-  //       document.getElementById('guest-bubbles').remove();
-  //       return;
-  //     }
+  //     const data = result.data || [];
+  //     if (!data.length) return;
 
-  //     const container = document.querySelector('#guest-bubbles .bubbles');
+  //     const vw = window.innerWidth;
+  //     const vh = window.innerHeight;
 
   //     data.forEach(item => {
   //       const bubble = document.createElement('div');
   //       bubble.classList.add('bubble');
   //       bubble.textContent = item.comment.trim();
 
-  //       // 根據字數調整尺寸
-  //       const length = item.comment.length;
-  //       const size = Math.min(100 + length * 2, 320);
+  //       // 設定大小依留言長度
+  //       const base = Math.min(100 + item.comment.length * 3, 260);
+  //       const size = gsap.utils.random(base * 0.8, base * 1.1);
   //       bubble.style.width = `${size}px`;
   //       bubble.style.height = `${size}px`;
 
+  //       // 起始位置
+  //       const x = gsap.utils.random(0, vw - size);
+  //       const y = gsap.utils.random(0, vh - size);
+  //       bubble.style.left = `${x}px`;
+  //       bubble.style.top = `${y}px`;
+
   //       container.appendChild(bubble);
-  //     });
+  //       bubblesArr.push({ el: bubble, baseX: x, baseY: y, size });
 
-  //     // 加入GSAP動畫
-  //     document.querySelectorAll('.bubble').forEach(bubble => {
-  //       const floatY = gsap.utils.random(-40, 40);
-  //       const floatX = gsap.utils.random(-30, 30);
-
+  //       // 漂浮動畫（永遠持續）
   //       gsap.to(bubble, {
-  //         x: floatX,
-  //         y: floatY,
-  //         duration: gsap.utils.random(3, 6),
+  //         x: `random(-30, 30)`,
+  //         y: `random(-50, 50)`,
+  //         duration: gsap.utils.random(1, 10),
   //         repeat: -1,
   //         yoyo: true,
   //         ease: "sine.inOut"
   //       });
+        
+  //     });
 
-  //       // Scroll 觸發進場淡入
-  //       gsap.from(bubble, {
-  //         opacity: 0,
-  //         y: 50,
-  //         duration: 1.2,
-  //         scrollTrigger: {
-  //           trigger: bubble,
-  //           start: "top 90%",
+  //     // 滑鼠互動
+  //     document.addEventListener("mousemove", (e) => {
+  //       bubblesArr.forEach(({ el, baseX, baseY, size }) => {
+  //         const rect = el.getBoundingClientRect();
+  //         const cx = rect.left + rect.width / 2;
+  //         const cy = rect.top + rect.height / 2;
+  //         const dx = e.clientX - cx;
+  //         const dy = e.clientY - cy;
+  //         const dist = Math.sqrt(dx * dx + dy * dy);
+
+  //         const maxDist = 250; // 滑鼠影響範圍
+  //         if (dist < maxDist) {
+  //           const angle = Math.atan2(dy, dx);
+  //           const force = (maxDist - dist) * 0.8; // 距離越近、力道越大
+  //           const offsetX = -Math.cos(angle) * force;
+  //           const offsetY = -Math.sin(angle) * force;
+
+  //           gsap.to(el, {
+  //             x: offsetX,
+  //             y: offsetY,
+  //             duration: 0.5,
+  //             ease: "power2.out"
+  //           });
+  //         } else {
+  //           gsap.to(el, {
+  //             x: 0,
+  //             y: 0,
+  //             duration: 2,
+  //             ease: "elastic.out(1, 0.4)"
+  //           });
   //         }
   //       });
   //     });
-  //   })
-  //   .catch(err => {
-  //     console.error(err);
-  //     document.getElementById('guest-bubbles').remove();
   //   });
-  const API_URL = 'http://220.128.133.15/s1090419/wedding/api.php';
-  const container = document.querySelector('#guest-bubbles .bubbles');
-  const bubblesArr = [];
-  
-  fetch(API_URL)
-    .then(res => res.json())
-    .then(result => {
-      const data = result.data || [];
-      if (!data.length) return;
-  
-      const vw = window.innerWidth;
-      const vh = window.innerHeight;
-  
+    function fetchComments() {
+      fetch(API_URL)
+        .then(res => res.json())
+        .then(result => {
+          const data = result.data || [];
+          if (!data.length) return;
+          createBubbles(data);
+        })
+        .catch(err => console.error('載入留言錯誤:', err));
+    }
+    
+    // function createBubbles(data) {
+    //   container.innerHTML = ''; // 清空現有的泡泡
+    //   bubblesArr = [];
+    
+    //   const vw = window.innerWidth;
+    //   const vh = window.innerHeight;
+    
+    //   data.forEach(item => {
+    //     const bubble = document.createElement('div');
+    //     bubble.classList.add('bubble');
+    //     bubble.textContent = item.comment.trim();
+    
+    //     // 設定大小依留言長度
+    //     const base = Math.min(100 + item.comment.length * 3, 260);
+    //     const size = gsap.utils.random(base * 0.8, base * 1.1);
+    //     bubble.style.width = `${size}px`;
+    //     bubble.style.height = `${size}px`;
+    
+    //     // 起始位置
+    //     const x = gsap.utils.random(0, vw - size);
+    //     const y = gsap.utils.random(0, vh - size);
+    //     bubble.style.left = `${x}px`;
+    //     bubble.style.top = `${y}px`;
+    
+    //     container.appendChild(bubble);
+    //     bubblesArr.push({ el: bubble, baseX: x, baseY: y, size });
+    
+    //     // 🫧 每個泡泡的漂浮動畫（暫停狀態，等 ScrollTrigger 觸發）
+    //     const floatAnim = gsap.to(bubble, {
+    //       x: `random(-30, 30)`,
+    //       y: `random(-50, 50)`,
+    //       duration: gsap.utils.random(1, 10),
+    //       repeat: -1,
+    //       yoyo: true,
+    //       ease: "sine.inOut",
+    //       paused: true // <-- 先暫停
+    //     });
+    
+    //     // 📜 當滾動到 #guest-bubbles 區塊時才啟動
+    //     ScrollTrigger.create({
+    //       trigger: "#guest-bubbles",
+    //       start: "top 80%",   // 區塊進入視窗底部 20% 時開始
+    //       end: "bottom top",  // 滾出畫面上方時結束
+    //       onEnter: () => floatAnim.play(),
+    //       onEnterBack: () => floatAnim.play(),
+    //       onLeave: () => floatAnim.pause(),
+    //       onLeaveBack: () => floatAnim.pause(),
+    //     });
+    //   });
+    // }
+    function createBubbles(data) {
+      container.innerHTML = ''; // 清空現有的泡泡
+      bubblesArr.length = 0; // 清空陣列
+    
+      const containerRect = container.getBoundingClientRect();
+      const vw = containerRect.width; // 使用容器寬度
+      const vh = containerRect.height; // 使用容器高度
+      const speedScale = 0.5; // 速度縮放因子，保持較慢速度
+    
+      // 儲存所有氣泡的動畫狀態
+      const bubbles = [];
+    
       data.forEach(item => {
         const bubble = document.createElement('div');
         bubble.classList.add('bubble');
         bubble.textContent = item.comment.trim();
-  
+    
         // 設定大小依留言長度
         const base = Math.min(100 + item.comment.length * 3, 260);
         const size = gsap.utils.random(base * 0.8, base * 1.1);
         bubble.style.width = `${size}px`;
         bubble.style.height = `${size}px`;
-  
-        // 起始位置
+    
+        // 起始位置（確保不超出邊界）
         const x = gsap.utils.random(0, vw - size);
         const y = gsap.utils.random(0, vh - size);
-        bubble.style.left = `${x}px`;
-        bubble.style.top = `${y}px`;
-  
+    
+        // 使用 transform 取代 left/top
+        bubble.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    
+        // 初始隨機速度（單位：像素/秒）
+        const vx = gsap.utils.random(-30, 30) * speedScale; // 速度範圍
+        const vy = gsap.utils.random(-30, 30) * speedScale;
+    
         container.appendChild(bubble);
+        bubbles.push({ el: bubble, x, y, vx, vy, size });
+    
+        // 儲存 baseX 和 baseY 以便後續使用（如滑鼠互動）
         bubblesArr.push({ el: bubble, baseX: x, baseY: y, size });
-  
-        // 漂浮動畫（永遠持續）
-        gsap.to(bubble, {
-          x: `random(-30, 30)`,
-          y: `random(-50, 50)`,
-          duration: gsap.utils.random(6, 10),
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut"
-        });
       });
-  
-      // 滑鼠互動
-      document.addEventListener("mousemove", (e) => {
-        bubblesArr.forEach(({ el, baseX, baseY, size }) => {
-          const rect = el.getBoundingClientRect();
-          const cx = rect.left + rect.width / 2;
-          const cy = rect.top + rect.height / 2;
-          const dx = e.clientX - cx;
-          const dy = e.clientY - cy;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-  
-          const maxDist = 250; // 滑鼠影響範圍
-          if (dist < maxDist) {
-            const angle = Math.atan2(dy, dx);
-            const force = (maxDist - dist) * 0.8; // 距離越近、力道越大
-            const offsetX = -Math.cos(angle) * force;
-            const offsetY = -Math.sin(angle) * force;
-  
-            gsap.to(el, {
-              x: offsetX,
-              y: offsetY,
-              duration: 0.5,
-              ease: "power2.out"
-            });
-          } else {
-            gsap.to(el, {
-              x: 0,
-              y: 0,
-              duration: 2,
-              ease: "elastic.out(1, 0.4)"
-            });
+    
+      // 動畫更新函數
+      function updateBubbles() {
+        const containerRect = container.getBoundingClientRect();
+        const vw = containerRect.width;
+        const vh = containerRect.height;
+    
+        bubbles.forEach(bubble => {
+          // 更新位置
+          bubble.x += bubble.vx * (1 / 60); // 假設 60fps
+          bubble.y += bubble.vy * (1 / 60);
+    
+          // 邊界碰撞檢測（即時反彈，無延遲）
+          if (bubble.x <= 0) {
+            bubble.x = 0;
+            bubble.vx = -bubble.vx; // 直接反轉速度，無減弱
+          } else if (bubble.x >= vw - bubble.size) {
+            bubble.x = vw - bubble.size;
+            bubble.vx = -bubble.vx; // 直接反轉速度，無減弱
           }
+    
+          if (bubble.y <= 0) {
+            bubble.y = 0;
+            bubble.vy = -bubble.vy; // 直接反轉速度，無減弱
+          } else if (bubble.y >= vh - bubble.size) {
+            bubble.y = vh - bubble.size;
+            bubble.vy = -bubble.vy; // 直接反轉速度，無減弱
+          }
+    
+          // 使用 transform 更新位置（即時渲染）
+          bubble.el.style.transform = `translate3d(${bubble.x}px, ${bubble.y}px, 0)`;
         });
+      }
+    
+      // 使用 GSAP ticker 進行動畫更新
+      const ticker = gsap.ticker.add(updateBubbles);
+    
+      // ScrollTrigger 控制動畫播放與暫停
+      ScrollTrigger.create({
+        trigger: "#guest-bubbles",
+        start: "top 80%", // 區塊進入視窗底部 20% 時開始
+        end: "bottom top", // 滾出畫面上方時結束
+        onEnter: () => gsap.ticker.add(ticker),
+        onEnterBack: () => gsap.ticker.add(ticker),
+        onLeave: () => gsap.ticker.remove(ticker),
+        onLeaveBack: () => gsap.ticker.remove(ticker),
       });
-    });
+    }
+    
 });
+
