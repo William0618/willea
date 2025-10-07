@@ -586,7 +586,7 @@ header nav .right-part {
 #guest-bubbles::before{
   content:"";
   position:absolute; inset:0;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(1px);
   background: rgba(255,255,255,0.20);
   z-index: 1;
 }
@@ -597,9 +597,12 @@ header nav .right-part {
   z-index:2; 
 }
 
-/* 每顆 bubble（single element）: 使用 CSS 變數做分層 transform */
-.bubble{
+.bubble {
   position: absolute;
+  padding: 10px 5px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   left: 0; 
   top: 0; /* 會用 style.left/top 放初始位置 */
   --mouse-x: 0px;
@@ -609,48 +612,33 @@ header nav .right-part {
   transform: translate3d(var(--mouse-x), var(--mouse-y), 0)
              translate3d(var(--float-x), var(--float-y), 0);
   will-change: transform;
-  pointer-events: none; /* 若你想點擊泡泡可改成 auto */
-}
-
-/* 圓形視覺 */
-.bubble {
-  position: absolute;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  pointer-events: none;
   text-align:center;
-  padding: 20px 5px;
-  color: var(--color-secondary);
   font-size: 14px;
   line-height:1.3;
   border-radius:50%;
   user-select:none;
-  background-image:
+  /* background-image:
     radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(255,255,255,0.25)),
-    radial-gradient(circle at 70% 70%, rgba(255,0,150,0.10), rgba(0,200,255,0.07));
+    radial-gradient(circle at 70% 70%, rgba(255,0,150,0.10), rgba(0,200,255,0.07)); */
+  -webkit-mask-image: radial-gradient(circle, white 80%, transparent 81%);
+  mask-image: radial-gradient(circle, white 80%, transparent 81%);
+  background: white;
+  /* color: transparent; */
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
   box-shadow:
     0 8px 28px rgba(0,0,0,0.06),
     inset 4px 4px 12px rgba(255,255,255,0.45),
     inset -4px -4px 12px rgba(0,0,0,0.08);
   border: 1px solid rgba(255,255,255,0.35);
   backdrop-filter: blur(3px);
-  max-width: 280px; /* 避免長文太寬 */
-  overflow-wrap: break-word;
+  overflow-wrap: break-all;
   transition: transform 0.18s ease-out;
   overflow: hidden;
+  word-break: break-word;
 }
-
-/* hover 效果 (可選) */
-.bubble:hover{
-  transform: translate3d(var(--mouse-x), var(--mouse-y), 0)
-             translate3d(var(--float-x), var(--float-y), 0)
-             scale(1.04);
-  box-shadow: 0 14px 34px rgba(0,0,0,0.12);
-}
-
-
-
-
 
 
 /* countdown */
@@ -758,12 +746,19 @@ footer img{
     height: unset;
   }
 
-  #hero .left-part,
-  #hero .right-part {
+  #hero .left-part{
     height: 100vh;
     flex-basis: 100%;
   }
+  #hero .right-part{
+    padding: 70px 4%;
+    flex-basis: 100%;
+    height: auto;
+  }
+  #hero .right-part img{
+    width: 70%;
 
+  }
   /*End of hero part */
   #invitation {
     display: flex;
@@ -874,5 +869,9 @@ footer img{
     height: 150vh;
     background-image: url("../img/LIMIYA1140417(163).webp");
     background-position: bottom center;
+  }
+
+  .bubble{
+    font-size: clamp(0.625rem, 0.4039rem + 0.9828vw, 0.875rem);
   }
 }
