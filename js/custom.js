@@ -14,41 +14,69 @@ document.addEventListener("DOMContentLoaded", () => {
       pin: true
     }
   });
-  mm.add("(min-width: 768px)", () => {
-    gsap.to("#save-the-date>h1", {
-      scale: 10,
-      scrollTrigger: {
-        trigger: "#save-the-date",
-        start: "top 0%",
-        end: "top -100%",
-        scrub: 2,
-        pin: "#save-the-date",
-      }
-    });
-  });
+  // mm.add("(min-width: 768px)", () => {
+  //   gsap.to("#save-the-date>h1", {
+  //     scale: 10,
+  //     scrollTrigger: {
+  //       trigger: "#save-the-date",
+  //       start: "top 0%",
+  //       end: "top -100%",
+  //       scrub: 2,
+  //       pin: "#save-the-date",
+  //     }
+  //   });
+  // });
 
-  mm.add("(max-width: 767px)", () => {
-    gsap.to("#save-the-date>h1", {
-      scale: 5,
-      scrollTrigger: {
-        trigger: "#save-the-date",
-        start: "top 0%",
-        end: "top -100%",
-        scrub: 2,
-        pin: "#save-the-date",
-      }
-    });
-  });
-  gsap.to("#save-the-date", {
-    backgroundColor: "#7295A4",
+  // mm.add("(max-width: 767px)", () => {
+  //   gsap.to("#save-the-date>h1", {
+  //     scale: 5,
+  //     scrollTrigger: {
+  //       trigger: "#save-the-date",
+  //       start: "top 0%",
+  //       end: "top -100%",
+  //       scrub: 2,
+  //       pin: "#save-the-date",
+  //     }
+  //   });
+  // });
+  // gsap.to("#save-the-date", {
+  //   backgroundColor: "#7295A4",
+  //   scrollTrigger: {
+  //     scroller: "body",
+  //     trigger: "#save-the-date",
+  //     start: "top 50%",
+  //     end: "top -50%",
+  //     scrub: 2,
+  //   }
+  // });
+  // 🎉 Save the Date 區塊進場動畫
+  gsap.timeline({
     scrollTrigger: {
-      scroller: "body",
       trigger: "#save-the-date",
-      start: "top 50%",
-      end: "top -50%",
-      scrub: 2,
+      start: "top 50%", // 元素進入視窗 80% 處開始
+      toggleActions: "play none none reverse"
     }
-  });
+  })
+    .from("#save-the-date h1", {
+      y: 40,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out"
+    })
+    .from("#save-the-date .date", {
+      y: 40,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out"
+    }, "-=0.4")
+    .from("#save-the-date .emotional-text", {
+      y: 40,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out"
+    }, "-=0.3");
+
+
   gsap.utils.toArray('#invitation .text h1').forEach((el, i) => {
     // 文字與圖片分開動畫：文字從下方淡入，圖片同時放大並淡入
     const img = el.querySelector('img');
@@ -226,146 +254,13 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
   }
 
-  // const API_URL = './data/comments.json';
-  // const container = document.querySelector('#guest-bubbles .bubbles');
-  // let bubblesArr = [];
-
-  // fetchComments();
-  // window.addEventListener('resize', fetchComments);
-
-  // function fetchComments() {
-  //   fetch(API_URL)
-  //     .then(res => res.json())
-  //     .then(result => {
-  //       const data = result.data || [];
-  //       if (!data.length) return;
-  //       createBubbles(data);
-  //     })
-  //     .catch(err => console.error('載入留言錯誤:', err));
-  // }
-
-  // function createBubbles(data) {
-  //   container.innerHTML = '';
-  //   bubblesArr.length = 0;
-
-  //   const containerRect = container.getBoundingClientRect();
-  //   const vw = containerRect.width;
-  //   const vh = containerRect.height;
-  //   const speedScale = 0.5;
-
-  //   const bubbles = [];
-
-  //   data.forEach(item => {
-  //     const bubble = document.createElement('div');
-  //     bubble.classList.add('bubble');
-  //     const maxChars = 120;
-  //     const text = item.comment.trim();
-  //     const shortText = text.length > maxChars ? text.slice(0, maxChars) + '…' : text;
-  //     bubble.textContent = shortText;
-  //     // bubble.textContent = item.comment.trim();
-
-  //     const base = Math.min(50 + shortText.length * 5, 280);
-  //     const size = gsap.utils.random(base * 0.8, base * 1.1);
-  //     bubble.style.width = `${size}px`;
-  //     bubble.style.height = `${size}px`;
-
-  //     const x = gsap.utils.random(0, vw - size);
-  //     const y = gsap.utils.random(0, vh - size);
-  //     bubble.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-
-  //     const vx = gsap.utils.random(-30, 30) * speedScale;
-  //     const vy = gsap.utils.random(-30, 30) * speedScale;
-
-  //     container.appendChild(bubble);
-  //     bubbles.push({
-  //       el: bubble,
-  //       x,
-  //       y,
-  //       vx,
-  //       vy,
-  //       size,
-  //       vxInitial: vx, // ← 記住初始速度
-  //       vyInitial: vy
-  //     });
-
-  //     bubblesArr.push({ el: bubble, baseX: x, baseY: y, size });
-  //   });
-
-  //   // 📦 更新位置
-  //   function updateBubbles() {
-  //     const containerRect = container.getBoundingClientRect();
-  //     const vw = containerRect.width;
-  //     const vh = containerRect.height;
-
-  //     bubbles.forEach(bubble => {
-  //       bubble.x += bubble.vx * (1 / 60);
-  //       bubble.y += bubble.vy * (1 / 60);
-
-  //       if (bubble.x <= 0) { bubble.x = 0; bubble.vx = -bubble.vx; }
-  //       else if (bubble.x >= vw - bubble.size) { bubble.x = vw - bubble.size; bubble.vx = -bubble.vx; }
-
-  //       if (bubble.y <= 0) { bubble.y = 0; bubble.vy = -bubble.vy; }
-  //       else if (bubble.y >= vh - bubble.size) { bubble.y = vh - bubble.size; bubble.vy = -bubble.vy; }
-
-  //       bubble.el.style.transform = `translate3d(${bubble.x}px, ${bubble.y}px, 0)`;
-  //     });
-  //   }
-
-  //   const ticker = gsap.ticker.add(updateBubbles);
-
-  //   ScrollTrigger.create({
-  //     trigger: "#guest-bubbles",
-  //     start: "top 80%",
-  //     end: "bottom top",
-  //     onEnter: () => gsap.ticker.add(ticker),
-  //     onEnterBack: () => gsap.ticker.add(ticker),
-  //     onLeave: () => gsap.ticker.remove(ticker),
-  //     onLeaveBack: () => gsap.ticker.remove(ticker),
-  //   });
-
-  //   // 📍 滑鼠靠近 → 逃開
-  //   container.addEventListener("pointermove", (e) => {
-  //     const rect = container.getBoundingClientRect();
-  //     const mouseX = e.clientX - rect.left;
-  //     const mouseY = e.clientY - rect.top;
-
-  //     bubbles.forEach(bubble => {
-  //       const cx = bubble.x + bubble.size / 2;
-  //       const cy = bubble.y + bubble.size / 2;
-  //       const dx = mouseX - cx;
-  //       const dy = mouseY - cy;
-  //       const dist = Math.sqrt(dx * dx + dy * dy);
-
-  //       const maxDist = 250;
-  //       if (dist < maxDist) {
-  //         const angle = Math.atan2(dy, dx);
-  //         const force = (maxDist - dist) * 0.08;
-  //         bubble.vx -= Math.cos(angle) * force;
-  //         bubble.vy -= Math.sin(angle) * force;
-  //       }
-  //     });
-  //   });
-
-  //   // 📍 滑鼠離開 → 自動「內插回原始速度」
-  //   container.addEventListener("pointerleave", () => {
-  //     bubbles.forEach(bubble => {
-  //       gsap.to(bubble, {
-  //         duration: 2, // 回復的時間（秒）越長越自然
-  //         vx: bubble.vxInitial,
-  //         vy: bubble.vyInitial,
-  //         ease: "power2.out"
-  //       });
-  //     });
-  //   });
-  // }
-
   const API_URL = './data/comments.json';
   const container = document.querySelector('#guest-bubbles .bubbles');
   let bubblesArr = [];
-  
+
   fetchComments();
   window.addEventListener('resize', fetchComments);
-  
+
   function fetchComments() {
     fetch(API_URL)
       .then(res => res.json())
@@ -376,18 +271,18 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch(err => console.error('載入留言錯誤:', err));
   }
-  
+
   function createBubbles(data) {
     container.innerHTML = '';
     bubblesArr.length = 0;
-  
+
     const containerRect = container.getBoundingClientRect();
     const vw = containerRect.width;
     const vh = containerRect.height;
     const speedScale = 0.5;
-  
+
     const bubbles = [];
-  
+
     data.forEach(item => {
       const bubble = document.createElement('div');
       bubble.classList.add('bubble');
@@ -395,19 +290,20 @@ document.addEventListener("DOMContentLoaded", () => {
       const text = item.comment.trim();
       const shortText = text.length > maxChars ? text.slice(0, maxChars) + '…' : text;
       bubble.textContent = shortText;
-  
-      const base = Math.min(50 + text.length * 5, 280);
-      const size = base; // 精準大小控制
+      // bubble.textContent = item.comment.trim();
+
+      const base = Math.min(50 + shortText.length * 5, 280);
+      const size = gsap.utils.random(base * 0.8, base * 1.1);
       bubble.style.width = `${size}px`;
       bubble.style.height = `${size}px`;
-  
+
       const x = gsap.utils.random(0, vw - size);
       const y = gsap.utils.random(0, vh - size);
       bubble.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-  
+
       const vx = gsap.utils.random(-30, 30) * speedScale;
       const vy = gsap.utils.random(-30, 30) * speedScale;
-  
+
       container.appendChild(bubble);
       bubbles.push({
         el: bubble,
@@ -416,32 +312,35 @@ document.addEventListener("DOMContentLoaded", () => {
         vx,
         vy,
         size,
-        vxInitial: vx,
+        vxInitial: vx, // ← 記住初始速度
         vyInitial: vy
       });
+
+      bubblesArr.push({ el: bubble, baseX: x, baseY: y, size });
     });
-  
+
+    // 📦 更新位置
     function updateBubbles() {
       const containerRect = container.getBoundingClientRect();
       const vw = containerRect.width;
       const vh = containerRect.height;
-  
+
       bubbles.forEach(bubble => {
         bubble.x += bubble.vx * (1 / 60);
         bubble.y += bubble.vy * (1 / 60);
-  
+
         if (bubble.x <= 0) { bubble.x = 0; bubble.vx = -bubble.vx; }
         else if (bubble.x >= vw - bubble.size) { bubble.x = vw - bubble.size; bubble.vx = -bubble.vx; }
-  
+
         if (bubble.y <= 0) { bubble.y = 0; bubble.vy = -bubble.vy; }
         else if (bubble.y >= vh - bubble.size) { bubble.y = vh - bubble.size; bubble.vy = -bubble.vy; }
-  
+
         bubble.el.style.transform = `translate3d(${bubble.x}px, ${bubble.y}px, 0)`;
       });
     }
-  
+
     const ticker = gsap.ticker.add(updateBubbles);
-  
+
     ScrollTrigger.create({
       trigger: "#guest-bubbles",
       start: "top 80%",
@@ -451,35 +350,21 @@ document.addEventListener("DOMContentLoaded", () => {
       onLeave: () => gsap.ticker.remove(ticker),
       onLeaveBack: () => gsap.ticker.remove(ticker),
     });
-  
-    // 📍 桌機：滑鼠靠近逃開
-    container.addEventListener("mousemove", handlePointerMove);
-  
-    // 📱 手機：手指移動模擬滑鼠
-    container.addEventListener("touchmove", (e) => {
-      const touch = e.touches[0];
-      if (!touch) return;
-      handlePointerMove(touch);
-    });
-  
-    // 📍 手指/滑鼠移出：自然減速回復
-    container.addEventListener("mouseleave", resetBubbles);
-    container.addEventListener("touchend", resetBubbles);
-    container.addEventListener("touchcancel", resetBubbles);
-  
-    function handlePointerMove(e) {
+
+    // 📍 滑鼠靠近 → 逃開
+    container.addEventListener("pointermove", (e) => {
       const rect = container.getBoundingClientRect();
       const mouseX = e.clientX - rect.left;
       const mouseY = e.clientY - rect.top;
-  
+
       bubbles.forEach(bubble => {
         const cx = bubble.x + bubble.size / 2;
         const cy = bubble.y + bubble.size / 2;
         const dx = mouseX - cx;
         const dy = mouseY - cy;
         const dist = Math.sqrt(dx * dx + dy * dy);
-  
-        const maxDist = 200;
+
+        const maxDist = 250;
         if (dist < maxDist) {
           const angle = Math.atan2(dy, dx);
           const force = (maxDist - dist) * 0.08;
@@ -487,20 +372,22 @@ document.addEventListener("DOMContentLoaded", () => {
           bubble.vy -= Math.sin(angle) * force;
         }
       });
-    }
-  
-    function resetBubbles() {
+    });
+
+    // 📍 滑鼠離開 → 自動「內插回原始速度」
+    container.addEventListener("pointerleave", () => {
       bubbles.forEach(bubble => {
         gsap.to(bubble, {
-          duration: 3,
+          duration: 2.5, // 回復的時間（秒）越長越自然
           vx: bubble.vxInitial,
           vy: bubble.vyInitial,
           ease: "power2.out"
         });
       });
-    }
+    });
   }
-  
+
+
 
 
 });

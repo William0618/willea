@@ -175,7 +175,7 @@ header nav .right-part {
 /*End of hero part */
 
 /* save-the-date */
-#save-the-date {
+/* #save-the-date {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -190,7 +190,59 @@ header nav .right-part {
   scale: 0;
   text-align: center;
   text-transform: uppercase;
+} */
+#save-the-date {
+  height: 100vh;
+  padding: 70px 4%;
+  align-content: center;
+  text-align: center;
+  background: linear-gradient(180deg, #f9fafb 0%, #eef3f7 100%);
+  position: relative;
 }
+
+#save-the-date .save-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#save-the-date h1 {
+  margin-bottom: 10px;
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-family: 'EB Garamond', serif;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: var(--color-primary);
+  transform: translateY(40px);
+}
+
+#save-the-date .date {
+  margin-bottom: 40px;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-accent);
+  transform: translateY(40px);
+}
+
+#save-the-date .emotional-text {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  line-height: 1.9;
+  color: #555;
+  font-weight: 400;
+
+  transform: translateY(40px);
+}
+
+#save-the-date .emotional-text span {
+  display: block;
+  margin-top: 25px;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-family: 'EB Garamond', serif;
+  font-weight: 600;
+  color: #777;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
 
 /* End of save-the-date */
 
@@ -387,7 +439,7 @@ header nav .right-part {
 #wedding-info {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 5%;
   padding: 8% 4%;
   background: linear-gradient(180deg, #fff, var(--color-shadow));
@@ -462,7 +514,20 @@ header nav .right-part {
   object-fit: cover;
   object-position: center;
 }
+.info-map{
+  flex-basis: 50%;
+}
+.info-map img {
+  width: 100%;
+  /* max-width: 480px; */
+  height: auto;
+  filter: drop-shadow(0 4px 20px rgba(0,0,0,0.08));
+  transition: transform 0.6s ease;
+}
 
+.info-map img:hover {
+  transform: scale(1.02);
+}
 /* End of weddings-info */
 
 #guest-messages {
