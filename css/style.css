@@ -599,18 +599,18 @@ header nav .right-part {
 
 .bubble {
   position: absolute;
-  padding: 10px 5px;
+  padding: 10px;
   display:flex;
   align-items:center;
   justify-content:center;
   left: 0; 
   top: 0; /* 會用 style.left/top 放初始位置 */
-  --mouse-x: 0px;
+  /* --mouse-x: 0px;
   --mouse-y: 0px;
   --float-x: 0px;
   --float-y: 0px;
   transform: translate3d(var(--mouse-x), var(--mouse-y), 0)
-             translate3d(var(--float-x), var(--float-y), 0);
+             translate3d(var(--float-x), var(--float-y), 0); */
   will-change: transform;
   pointer-events: none;
   text-align:center;
@@ -806,56 +806,7 @@ footer img{
   .bride-img{
     right: -2%;
   }
-  /* #character {
-    height: unset;
-    flex-wrap: wrap;
-  }
 
-  .character-img {
-    flex-basis: 100%;
-    aspect-ratio: unset;
-    text-align: center;
-    box-shadow: unset;
-  }
-
-  .character-img img {
-    width: 280px;
-    height: 50vh;
-    object-fit: cover;
-    object-position: bottom center;
-    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  #character .bride-part,
-  #character .groom-part {
-    flex-basis: 100%;
-    position: relative;
-    height: 160px;
-    left: unset;
-    right: unset;
-  }
-
-  #character .bride-part .intro-text {
-    position: absolute;
-    bottom: 20px;
-  }
-
-  #character .groom-part .intro-text {
-    position: absolute;
-    top: 10px;
-  }
-
-  #character .intro-text {
-    width: 180px;
-  }
-
-  #character .intro-text h2 {
-    text-align: start;
-  }
-
-  #character .intro-text p {
-    margin: 0;
-  } */
   #wedding-info {
     flex-direction: column;
     text-align: center;
