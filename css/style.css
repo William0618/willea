@@ -345,7 +345,7 @@ header nav .right-part {
   object-fit: cover;
   object-position: 75% center;
   z-index: 154;
-  left: -2%;
+  left: 0;
   rotate: -4deg;
   border-radius: 35px;
 }
@@ -357,7 +357,7 @@ header nav .right-part {
   object-fit: cover;
   object-position: 15% center;
   z-index: 152;
-  right: -2%;
+  right: 0;
   rotate: 4deg;
   border-radius: 35px;
 }
@@ -638,6 +638,7 @@ header nav .right-part {
   transition: transform 0.18s ease-out;
   overflow: hidden;
   word-break: break-word;
+  
 }
 
 
@@ -704,20 +705,7 @@ footer img{
 }
 /* 手機版 */
 @media (max-width: 768px) {
-  #wedding-info {
-    flex-direction: column;
-    text-align: center;
-    padding: 12% 6%;
-  }
 
-  #wedding-info .info-text,
-  #wedding-info .info-image {
-    flex-basis: 100%;
-  }
-
-  #wedding-info .info-image {
-    margin-top: 30px;
-  }
 }
 
 
@@ -810,6 +798,14 @@ footer img{
     background-color: rgba(255, 255, 255, 0.074);
   }
   /* character section */
+
+  .groom-img{
+    left: -2%;
+  }
+
+  .bride-img{
+    right: -2%;
+  }
   /* #character {
     height: unset;
     flex-wrap: wrap;
@@ -860,7 +856,20 @@ footer img{
   #character .intro-text p {
     margin: 0;
   } */
+  #wedding-info {
+    flex-direction: column;
+    text-align: center;
+    padding: 12% 6%;
+  }
 
+  #wedding-info .info-text,
+  #wedding-info .info-image {
+    flex-basis: 100%;
+  }
+
+  #wedding-info .info-image {
+    margin-top: 30px;
+  }
   /* End of character section */
   .countdown-wrapper{
     gap: 25px;

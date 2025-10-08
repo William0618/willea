@@ -2,85 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-  // gsap.to(".hero-bg", {
-  //   scale: 1.1,       // 放大倍數
-  //   ease: "power3.out", // 或 "power3.out"
-  //   scrollTrigger: {
-  //     trigger: ".hero-banner",
-  //     start: "top top",
-  //     end: "center top",
-  //     scrub: 1.2,
-  //     pin: true
-  //   }
-  // });
-
-  // let focus = document.querySelector(".focus");
-
-  // document.addEventListener("mousemove", function (e) {
-  //   let x = e.pageX;
-  //   let y = e.pageY;
-
-  //   focus.style.background = "radial-gradient(circle at " + x + "px " + y + 'px ,rgba(190, 255, 255, 0.2), transparent 40%)';
-
-  // });
-  // 滑鼠移動視差 (hero 文字微偏移)
-  // const heroContent = document.querySelector(".name-img");
-  // document.addEventListener("mousemove", e => {
-  //   const { innerWidth, innerHeight } = window;
-  //   const moveX = (e.clientX - innerWidth / 2) / 50;  // 數字越小，偏移越大
-  //   const moveY = (e.clientY - innerHeight / 2) / 50;
-  //   gsap.to(heroContent, {
-  //     x: moveX,
-  //     y: moveY,
-  //     duration: 0.5,
-  //     ease: "power2.out"
-  //   });
-  // });
-  // gsap.to("#photo-gallery .gallery-img img", {
-  //   y: -150,
-  //   ease: "none",
-  //   scrollTrigger: {
-  //     trigger: "#photo-gallery",
-  //     start: "top bottom",
-  //     end: "bottom top",
-  //     scrub: true
-  //   }
-  // });
-
-  // const tl = gsap.timeline({
-  //   scrollTrigger: {
-  //     trigger: "#photo-gallery",
-  //     start: "top top",     // 捲到頂端觸發
-  //     end: "+=1000",        // 區塊總長度
-  //     scrub: true,          // 跟著滾動
-  //     pin: true,            // 固定在畫面
-  //     anticipatePin: 1
-  //   }
-  // });
-
-  // // 每張照片依序浮現 + 往上滾走
-  // tl.fromTo("#photo-gallery .gallery-img:nth-of-type(1)", 
-  //   { yPercent: 100,}, 
-  //   { yPercent: -200, opacity: 1, duration: 5 }, "<+0.5");
-
-  // tl.fromTo("#photo-gallery .gallery-img:nth-of-type(2)", 
-  //   { yPercent: 100,}, 
-  //   { yPercent: -200, opacity: 1, duration: 5 }, "<+1");
-
-  // tl.fromTo("#photo-gallery .gallery-img:nth-of-type(3)", 
-  //   { yPercent: 100,}, 
-  //   { yPercent: -200, opacity: 1, duration: 5 }, "<+1.5");
-  // gsap.to("#character", {
-  //   scrollTrigger: {
-  //     scroller: "body",
-  //     start: "top 10%",
-  //     end: "top -100%",
-  //     trigger: "#character",
-  //     pin: true,
-  //     scrub: 2,
-  //   }
-  // });
-  let mm = gsap.matchMedia();
+  const mm = gsap.matchMedia();
   gsap.to(".hero-bg", {
     scale: 1.1,       // 放大倍數
     ease: "power3.out", // 或 "power3.out"
@@ -92,21 +14,33 @@ document.addEventListener("DOMContentLoaded", () => {
       pin: true
     }
   });
-  gsap.to("#save-the-date>h1", {
+  mm.add("(min-width: 768px)", () => {
+    gsap.to("#save-the-date>h1", {
+      scale: 10,
+      scrollTrigger: {
+        trigger: "#save-the-date",
+        start: "top 0%",
+        end: "top -100%",
+        scrub: 2,
+        pin: "#save-the-date",
+      }
+    });
+  });
 
-    scale: 10,
-    scrollTrigger: {
-      scroller: "body",
-      trigger: "#save-the-date",
-      start: "top 0%",
-      end: "top -100%",
-      scrub: 2,
-      pin: "#save-the-date",
-    }
+  mm.add("(max-width: 767px)", () => {
+    gsap.to("#save-the-date>h1", {
+      scale: 5,
+      scrollTrigger: {
+        trigger: "#save-the-date",
+        start: "top 0%",
+        end: "top -100%",
+        scrub: 2,
+        pin: "#save-the-date",
+      }
+    });
   });
   gsap.to("#save-the-date", {
     backgroundColor: "#7295A4",
-
     scrollTrigger: {
       scroller: "body",
       trigger: "#save-the-date",
@@ -163,68 +97,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // 桌機（>=768px）
-  mm.add("(min-width: 768px)", () => {
-    // gsap.from(".bride-part", {
-    //   xPercent: 100,
-    //   rotate: 0,
-    //   opacity: 0,
-    //   scrollTrigger: {
-    //     scroller: "body",
-    //     start: "top 100%",
-    //     end: "top 75%",
-    //     trigger: ".bride-part",
-    //     scrub: 2,
-    //     // markers: true,
-
-    //   }
-    // });
-
-    // gsap.from(".groom-part", {
-    //   xPercent: -100,
-    //   rotate: 0,
-    //   opacity: 0,
-    //   scrollTrigger: {
-    //     scroller: "body",
-    //     start: "top 100%",
-    //     end: "top 75%",
-    //     trigger: ".groom-part",
-    //     scrub: 2,
-    //     // markers: true,
-
-    //   }
-    // });
-  });
-
-
-
-
-
-  // 手機（<768px）
   mm.add("(max-width: 767px)", () => {
-    // gsap.from(".bride-part .intro-text", {
-    //   y: 80,
-    //   opacity: 0,
-    //   scrollTrigger: {
-    //     trigger: ".bride-part .intro-text",
-    //     start: "top 100%",
-    //     end: "top 0%",
-    //     scrub: 2,
-    //     // markers: true,
-    //   },
-    // });
+    gsap.from(".bride-part .intro-text", {
+      y: 80,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".bride-part .intro-text",
+        start: "top 100%",
+        end: "top 0%",
+        scrub: 2,
+        // markers: true,
+      },
+    });
 
-    // gsap.from(".groom-part .intro-text", {
-    //   y: -80,
-    //   opacity: 0,
-    //   scrollTrigger: {
-    //     trigger: ".groom-part .intro-text",
-    //     start: "top 100%",
-    //     end: "top 50%",
-    //     scrub: 2,
-    //     // markers: true,
-    //   }
-    // });
+    gsap.from(".groom-part .intro-text", {
+      y: -80,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".groom-part .intro-text",
+        start: "top 100%",
+        end: "top 50%",
+        scrub: 2,
+        // markers: true,
+      }
+    });
   });
 
   const imageOne = document.querySelector("#invitation .image1")
@@ -262,6 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
     imageThree.style.scale = "1"
     imageThree.style.transform = "rotate(0deg)"
   });
+
   gsap.from(".groom-img", {
     x: 700,
     rotate: 0,
@@ -515,10 +412,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const API_URL = './data/comments.json';
   const container = document.querySelector('#guest-bubbles .bubbles');
   let bubblesArr = [];
-  
+
   fetchComments();
   window.addEventListener('resize', fetchComments);
-  
+
   function fetchComments() {
     fetch(API_URL)
       .then(res => res.json())
@@ -529,18 +426,18 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch(err => console.error('載入留言錯誤:', err));
   }
-  
+
   function createBubbles(data) {
     container.innerHTML = '';
     bubblesArr.length = 0;
-  
+
     const containerRect = container.getBoundingClientRect();
     const vw = containerRect.width;
     const vh = containerRect.height;
     const speedScale = 0.5;
-  
+
     const bubbles = [];
-  
+
     data.forEach(item => {
       const bubble = document.createElement('div');
       bubble.classList.add('bubble');
@@ -549,19 +446,19 @@ document.addEventListener("DOMContentLoaded", () => {
       const shortText = text.length > maxChars ? text.slice(0, maxChars) + '…' : text;
       bubble.textContent = shortText;
       // bubble.textContent = item.comment.trim();
-  
+
       const base = Math.min(50 + shortText.length * 5, 260);
       const size = gsap.utils.random(base * 0.8, base * 1.1);
       bubble.style.width = `${size}px`;
       bubble.style.height = `${size}px`;
-  
+
       const x = gsap.utils.random(0, vw - size);
       const y = gsap.utils.random(0, vh - size);
       bubble.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-  
+
       const vx = gsap.utils.random(-30, 30) * speedScale;
       const vy = gsap.utils.random(-30, 30) * speedScale;
-  
+
       container.appendChild(bubble);
       bubbles.push({
         el: bubble,
@@ -573,32 +470,32 @@ document.addEventListener("DOMContentLoaded", () => {
         vxInitial: vx, // ← 記住初始速度
         vyInitial: vy
       });
-  
+
       bubblesArr.push({ el: bubble, baseX: x, baseY: y, size });
     });
-  
+
     // 📦 更新位置
     function updateBubbles() {
       const containerRect = container.getBoundingClientRect();
       const vw = containerRect.width;
       const vh = containerRect.height;
-  
+
       bubbles.forEach(bubble => {
         bubble.x += bubble.vx * (1 / 60);
         bubble.y += bubble.vy * (1 / 60);
-  
+
         if (bubble.x <= 0) { bubble.x = 0; bubble.vx = -bubble.vx; }
         else if (bubble.x >= vw - bubble.size) { bubble.x = vw - bubble.size; bubble.vx = -bubble.vx; }
-  
+
         if (bubble.y <= 0) { bubble.y = 0; bubble.vy = -bubble.vy; }
         else if (bubble.y >= vh - bubble.size) { bubble.y = vh - bubble.size; bubble.vy = -bubble.vy; }
-  
+
         bubble.el.style.transform = `translate3d(${bubble.x}px, ${bubble.y}px, 0)`;
       });
     }
-  
+
     const ticker = gsap.ticker.add(updateBubbles);
-  
+
     ScrollTrigger.create({
       trigger: "#guest-bubbles",
       start: "top 80%",
@@ -608,20 +505,20 @@ document.addEventListener("DOMContentLoaded", () => {
       onLeave: () => gsap.ticker.remove(ticker),
       onLeaveBack: () => gsap.ticker.remove(ticker),
     });
-  
+
     // 📍 滑鼠靠近 → 逃開
     container.addEventListener("mousemove", (e) => {
       const rect = container.getBoundingClientRect();
       const mouseX = e.clientX - rect.left;
       const mouseY = e.clientY - rect.top;
-  
+
       bubbles.forEach(bubble => {
         const cx = bubble.x + bubble.size / 2;
         const cy = bubble.y + bubble.size / 2;
         const dx = mouseX - cx;
         const dy = mouseY - cy;
         const dist = Math.sqrt(dx * dx + dy * dy);
-  
+
         const maxDist = 250;
         if (dist < maxDist) {
           const angle = Math.atan2(dy, dx);
@@ -631,7 +528,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     });
-  
+
     // 📍 滑鼠離開 → 自動「內插回原始速度」
     container.addEventListener("mouseleave", () => {
       bubbles.forEach(bubble => {
@@ -644,9 +541,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
-  
-  
 
-  
+
+
+
 });
 
