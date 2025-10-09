@@ -15,10 +15,6 @@ html {
   font-family: 'Noto Serif TC', serif;
 }
 
-[data-en] {
-  font-family: "Bodoni Moda", serif;
-}
-
 h1,
 h2,
 h3,
@@ -28,7 +24,9 @@ h6,
 figure {
   margin: 0;
 }
-
+a{
+  text-decoration: none;
+}
 body {
   position: relative;
   margin: 0px;
@@ -62,27 +60,32 @@ header nav .right-part {
   justify-content: space-between;
   align-items: center;
   background-color: var(--color-bg);
-  border-bottom: 1px solid var(--color-primary);
+  border-bottom: 1px solid var(--color-bg);
+  background-color: var(--color-primary);
 }
 
 .menu-btn {
   width: 30px;
+  color: var(--color-bg);
+  font-size: 30px;
+  line-height: 30px;
 }
 
 .header-text {
   text-align: end;
   font-size: 30px;
   font-family: "Bodoni Moda", serif;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-primary);
-  line-height: 1;
+  color: var(--color-bg);
+  line-height: 30px;
 }
 
 /* End of header part */
 
 /* hero part */
 #hero {
-  margin-top: -70px;
+  margin-top: -51px;
   height: 100vh;
   display: flex;
   flex-wrap: wrap;
@@ -129,7 +132,7 @@ header nav .right-part {
 
 #hero .right-part img {
   width: 40%;
-  margin: 70px auto 20px;
+  margin: 51px auto 20px;
   /* position: absolute;
   top: 50%;
   left: 50%;
@@ -163,8 +166,8 @@ header nav .right-part {
   display: flex;
   align-items: center;
   font-family: "Bodoni Moda", serif;
+  font-weight: 700;
   font-size: 11px;
-  font-weight: 500;
   color: var(--color-secondary);
   background-color: transparent;
   border: 1px solid var(--color-secondary);
@@ -175,25 +178,10 @@ header nav .right-part {
 /*End of hero part */
 
 /* save-the-date */
-/* #save-the-date {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-#save-the-date > h1 {
-  font-family: "Bodoni Moda", serif;
-  font-size: 10px;
-  color: var(--color-bg);
-  scale: 0;
-  text-align: center;
-  text-transform: uppercase;
-} */
+
 #save-the-date {
   height: 100vh;
-  padding: 70px 4%;
+  padding: 51px 4%;
   align-content: center;
   text-align: center;
   background: linear-gradient(180deg, #f9fafb 0%, #eef3f7 100%);
@@ -209,7 +197,7 @@ header nav .right-part {
   margin-bottom: 10px;
   font-size: clamp(3rem, 8vw, 5rem);
   font-family: "Bodoni Moda", serif;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 2px;
   color: var(--color-primary);
   transform: translateY(40px);
@@ -236,9 +224,8 @@ header nav .right-part {
   margin-top: 25px;
   display: block;
   font-family: "Bodoni Moda", serif;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1rem;
-  font-style: italic;
   color: #777;
   letter-spacing: 0.5px;
 }
@@ -269,6 +256,7 @@ header nav .right-part {
 }
 #invitation > .text > h1 {
   font-family: "Bodoni Moda", serif;
+  font-weight: 700;
   /* font-size: 4.16vw; */
   font-size: 3rem;
   font-weight: 500;
@@ -315,7 +303,7 @@ header nav .right-part {
   width: 100vw;
   height: 100vh;
   position: relative;
-  padding: 70px 6%;
+  padding: 51px 6%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -415,6 +403,7 @@ header nav .right-part {
 }
 .intro-text h2 {
   font-family: "Bodoni Moda", serif;
+  font-weight: 700;
   font-size: 14px;
   color: var(--color-accent);
   letter-spacing: 2px;
@@ -435,10 +424,11 @@ header nav .right-part {
 }
 .intro-text span{
   font-family: "Bodoni Moda", serif;
+  font-weight: 700;
 }
 /* End of character section */
 #gallery {
-  padding: 70px 4%;
+  padding: 51px 4%;
   width: 100%;
   height: auto;
   background-color: var(--color-primary);
@@ -465,15 +455,16 @@ header nav .right-part {
   padding-bottom: 18vh;
 }
 
-.quote {
-  text-align: center;
+.gallery-description {
   position: relative;
-  z-index: 1;
   transform-origin: center center;
+  text-align: center;
+  z-index: 1;
 }
-.quote blockquote {
-  /* font-size: 7vw; */
+.gallery-description blockquote,
+.gallery-description figcaption {
   font-family: "Bodoni Moda", serif;
+  font-weight: 700;
 }
 #gallery .gallery-moments{
   width: 80vw;
@@ -509,11 +500,11 @@ header nav .right-part {
 /* wedding-info */
 #wedding-info {
   height: 100vh;
-  padding: 70px 4%;
+  padding: 51px 4%;
   background: linear-gradient(180deg, #fff, var(--color-shadow));
 }
 #wedding-info .info-content{
-  margin: 70px auto 0;
+  margin: 51px auto 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -523,6 +514,7 @@ header nav .right-part {
 #wedding-info .info-text {
   flex-basis: 50%;
   font-family: "Bodoni Moda", serif;
+  font-weight: 700;
   color: var(--color-secondary);
   line-height: 1.8;
 }
@@ -565,7 +557,7 @@ header nav .right-part {
 
 #wedding-info .map-link {
   color: var(--color-accent);
-  text-decoration: underline;
+  /* text-decoration: underline; */
   transition: color 0.3s, opacity 0.3s;
 }
 
@@ -594,61 +586,6 @@ header nav .right-part {
 }
 /* End of weddings-info */
 
-#guest-messages {
-  background: var(--color-shadow);
-  padding: 100px 5%;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-#guest-messages h2 {
-  color: var(--color-primary);
-  font-size: 2.2rem;
-  margin-bottom: 60px;
-  letter-spacing: 2px;
-}
-
-.letters {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-  perspective: 800px;
-}
-
-.letter {
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.05);
-  border-radius: 8px;
-  padding: 20px 30px;
-  width: 250px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-  text-align: left;
-  transform: rotate(var(--r));
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  font-family: "Bodoni Moda", serif;
-}
-
-.letter:hover {
-  transform: rotate(0deg) scale(1.05);
-  box-shadow: 0 15px 25px rgba(0,0,0,0.1);
-}
-
-.letter p {
-  color: var(--color-secondary);
-  font-size: 1.1rem;
-  line-height: 1.7;
-  margin-bottom: 12px;
-}
-
-.letter span {
-  color: var(--color-accent);
-  font-style: italic;
-  display: block;
-  text-align: right;
-}
-
 /* #guest-bubbles {
   height: 100vh;
   width: 100vw;
@@ -658,7 +595,7 @@ header nav .right-part {
   background-size: cover;
   background-position: center;
   text-align: center;
-  padding: 70px 2%;
+  padding: 51px 2%;
   overflow: hidden;
 }
 
@@ -802,7 +739,7 @@ header nav .right-part {
   font-size: 3rem;
   font-weight: bold;
   color: var(--color-accent);
-  min-width: 70px;
+  min-width: 51px;
 }
 
 .time-box small {
@@ -850,7 +787,7 @@ footer img{
 
   header nav .right-part {
     flex-basis: 100%;
-    border-bottom: 1px solid var(--color-primary);
+    /* border-bottom: 1px solid var(--color-primary); */
   }
 
   /*End of header part */
@@ -865,7 +802,7 @@ footer img{
     flex-basis: 100%;
   }
   #hero .right-part{
-    padding: 70px 4%;
+    padding: 51px 4%;
     flex-basis: 100%;
     height: auto;
   }

@@ -239,7 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
   tlGallery.fromTo("#gallery .bg", { yPercent: 0 }, { yPercent: -100, duration: 25 }, "<");
   tlGallery.fromTo(".gallery-intro", { yPercent: 100 }, { yPercent: -200, duration: 80 }, "<");
   
-  gsap.utils.toArray("#gallery .quote").forEach((fig, i) => {
+  gsap.utils.toArray("#gallery .gallery-description").forEach((fig, i) => {
       tlGallery.fromTo(fig, 
         { yPercent: 100, opacity: 0 }, 
         { yPercent: -300, opacity: 1, duration: 90 }, 
