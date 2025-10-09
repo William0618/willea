@@ -16,7 +16,7 @@ html {
 }
 
 [data-en] {
-  font-family: 'EB Garamond', serif;
+  font-family: "Bodoni Moda", serif;
 }
 
 h1,
@@ -72,7 +72,7 @@ header nav .right-part {
 .header-text {
   text-align: end;
   font-size: 30px;
-  /* font-family: 'EB Garamond', serif; */
+  font-family: "Bodoni Moda", serif;
   font-weight: 600;
   color: var(--color-primary);
   line-height: 1;
@@ -162,7 +162,7 @@ header nav .right-part {
   padding: 3px 12px;
   display: flex;
   align-items: center;
-  font-family: 'EB Garamond', serif;
+  font-family: "Bodoni Moda", serif;
   font-size: 11px;
   font-weight: 500;
   color: var(--color-secondary);
@@ -184,7 +184,7 @@ header nav .right-part {
   overflow: hidden;
 }
 #save-the-date > h1 {
-  font-family: 'EB Garamond', serif;
+  font-family: "Bodoni Moda", serif;
   font-size: 10px;
   color: var(--color-bg);
   scale: 0;
@@ -208,7 +208,7 @@ header nav .right-part {
 #save-the-date h1 {
   margin-bottom: 10px;
   font-size: clamp(3rem, 8vw, 5rem);
-  font-family: 'EB Garamond', serif;
+  font-family: "Bodoni Moda", serif;
   font-weight: 500;
   letter-spacing: 2px;
   color: var(--color-primary);
@@ -235,7 +235,7 @@ header nav .right-part {
 #save-the-date .text span {
   margin-top: 25px;
   display: block;
-  font-family: 'EB Garamond', serif;
+  font-family: "Bodoni Moda", serif;
   font-weight: 600;
   font-size: 1rem;
   font-style: italic;
@@ -251,7 +251,7 @@ header nav .right-part {
 #invitation {
   width: 100vw;
   height: 100vh;
-  /* padding-top: 70px; */
+  padding: 0 4%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -268,8 +268,9 @@ header nav .right-part {
   align-items: center;
 }
 #invitation > .text > h1 {
-  font-family: 'EB Garamond', serif;
-  font-size: 4.16vw;
+  font-family: "Bodoni Moda", serif;
+  /* font-size: 4.16vw; */
+  font-size: 3rem;
   font-weight: 500;
   text-align: center;
   display: flex;
@@ -282,7 +283,6 @@ header nav .right-part {
   font-size: 16px;
   font-family: 'Noto Serif TC', serif;
   text-align: center;
-  width: 40%;
   line-height: 1.7;
 }
 .image:hover {
@@ -414,7 +414,7 @@ header nav .right-part {
   border-radius: 35px;
 }
 .intro-text h2 {
-  font-family: 'EB Garamond', serif;
+  font-family: "Bodoni Moda", serif;
   font-size: 14px;
   color: var(--color-accent);
   letter-spacing: 2px;
@@ -432,6 +432,9 @@ header nav .right-part {
   color: #777;
   line-height: 1.6;
   text-align: start;
+}
+.intro-text span{
+  font-family: "Bodoni Moda", serif;
 }
 /* End of character section */
 #gallery {
@@ -470,7 +473,7 @@ header nav .right-part {
 }
 .quote blockquote {
   /* font-size: 7vw; */
-  font-family: 'EB Garamond', serif;
+  font-family: "Bodoni Moda", serif;
 }
 #gallery .gallery-moments{
   width: 80vw;
@@ -515,7 +518,7 @@ header nav .right-part {
 }
 #wedding-info .info-text {
   flex-basis: 50%;
-  font-family: "EB Garamond", serif;
+  font-family: "Bodoni Moda", serif;
   color: var(--color-secondary);
   line-height: 1.8;
 }
@@ -529,9 +532,10 @@ header nav .right-part {
 }
 
 #wedding-info .date {
-  font-size: 1.4rem;
-  color: var(--color-accent);
   margin-bottom: 10px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-accent);
 }
 
 #wedding-info .time {
@@ -546,14 +550,16 @@ header nav .right-part {
   letter-spacing: 1px;
 }
 
+#wedding-info .venue b{
+  color: var(--color-accent);
+  font-size: 18px;
+}
 #wedding-info .address {
   margin-top: 6px;
   color: var(--color-secondary);
 }
 
 #wedding-info .map-link {
-  display: inline-block;
-  margin-top: 10px;
   color: var(--color-accent);
   text-decoration: underline;
   transition: color 0.3s, opacity 0.3s;
@@ -617,7 +623,7 @@ header nav .right-part {
   text-align: left;
   transform: rotate(var(--r));
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  font-family: 'EB Garamond', serif;
+  font-family: "Bodoni Moda", serif;
 }
 
 .letter:hover {
@@ -826,7 +832,9 @@ footer img{
 /* End of wedding info */
 
 @media (max-width: 767px) {
-
+  .mobile-hide{
+    display: none;
+  }
   /* header part */
   .header-text {
     font-size: 30px;
@@ -878,13 +886,11 @@ footer img{
   }
   #invitation > .text > h1 {
     gap: 5px;
-    font-size: 35px;
-    line-height: 1.4;
+    font-size: 1.5rem;
   }
 
   #invitation > p {
     font-size: 14px;
-    width: 90%;
   }
 
   .imageone,

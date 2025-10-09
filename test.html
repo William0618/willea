@@ -1,164 +1,243 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我們結婚了</title>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+  <title>Document</title>
   <style>
-    :root {
-      --color-bg: #faf7f4;
-      --color-primary: #a06c5d;
-      --color-secondary: #555;
-      --color-accent: #c89f9c;
-    }
+    /* 基本重置與區域樣式 */
+    #about {
+  z-index: 3;
+  background-color: #000;
+  color: #fff;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+}
 
-    body {
-      margin: 0;
-      font-family: 'Noto Sans TC', sans-serif;
-      background: var(--color-bg);
-      color: var(--color-secondary);
-      line-height: 1.7;
-    }
+#about .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  z-index: 1;
+}
 
-    h1, h2, h3 {
-      font-family: 'EB Garamond', serif;
-      margin: 0 0 20px;
-      color: var(--color-primary);
-    }
+#about .about-introduction {
+  padding-left: 55vw;
+  padding-bottom: 18vh;
+  z-index: 2;
+}
 
-    section {
-      padding: 80px 6%;
-      text-align: center;
-    }
+#about .about-introduction p {
+  width: 28vw;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #ccc;
+}
 
-    /* Hero 區塊 */
-    .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: url('hero.jpg') center/cover no-repeat;
-      color: white;
-      text-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-    .hero h1 {
-      font-size: 56px;
-    }
-    .hero p {
-      font-size: 22px;
-    }
+#about .about-introduction p br {
+  display: block;
+  margin-bottom: 3vh;
+  content: "";
+}
 
-    /* 人物區 */
-    .character {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      align-items: center;
-      justify-content: center;
-    }
-    .character-img {
-      flex: 1 1 280px;
-      max-width: 360px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    .character-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .character-text {
-      flex: 1 1 320px;
-      max-width: 500px;
-      text-align: left;
-    }
+/* quote block */
+#about .quote {
+  width: 80vw;
+  margin: 20vh auto;
+  z-index: 3;
+}
 
-    /* 資訊區 */
-    .info-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-    }
-    .info-item {
-      flex: 1 1 250px;
-      max-width: 300px;
-      background: white;
-      padding: 24px;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-    }
-    .info-item h3 {
-      font-size: 22px;
-      margin-bottom: 10px;
-      color: var(--color-accent);
-    }
+#about .quote blockquote {
+  font-family: 'EB Garamond', serif;
+  font-size: 3.5vw;
+  line-height: 1.1;
+  text-align: center;
+  color: #fff;
+}
 
-    /* RSVP */
-    .rsvp {
-      background: var(--color-primary);
-      color: white;
-      padding: 80px 6%;
-    }
-    .rsvp h2 {
-      color: white;
-    }
-    .rsvp button {
-      background: white;
-      color: var(--color-primary);
-      border: none;
-      padding: 12px 28px;
-      font-size: 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .rsvp button:hover {
-      background: var(--color-accent);
-      color: white;
-    }
+#about .quote figcaption {
+  text-align: center;
+  font-size: 1vw;
+  margin-top: 1rem;
+  opacity: 0.7;
+}
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      font-size: 14px;
-      color: #888;
-    }
+/* image list */
+#about .about-moments {
+  width: 80vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 4;
+}
+
+#about .about-moments figure {
+  display: flex;
+  position: relative;
+}
+
+#about .about-moments figure img {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+
+#about .about-moments figure.vertical {
+  flex-direction: column;
+}
+#about .about-moments figure.vertical dl {
+  padding: 2vh 0;
+}
+#about .about-moments figure.horizontal {
+  flex-direction: row;
+}
+#about .about-moments figure.horizontal dl {
+  padding: 0 2vh;
+}
+
+#about .img-wrap {
+  width: fit-content;
+  position: relative;
+  transition: transform 0.4s ease;
+  transform-style: preserve-3d;
+  perspective: 1200px;
+}
+
+/* hover tilt */
+#about .about-moments figure:hover .img-wrap {
+  transform: rotateX(4deg) rotateY(-4deg);
+}
+
+#about .grad {
+  position: absolute;
+  width: 100%;
+  height: 99.7%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.2), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+#about .about-moments figure:hover .grad {
+  opacity: 0.3;
+}
+
+/* dl style */
+#about dl {
+  font-family: 'EB Garamond', serif;
+  font-size: 14px;
+  color: #aaa;
+}
+#about dt {
+  font-weight: bold;
+  color: #fff;
+}
+
   </style>
 </head>
 <body>
-
-  <!-- Hero -->
-  <section class="hero">
-    <h1>我們結婚了</h1>
-    <p>2025.11.29｜台北</p>
-  </section>
-
-  <!-- 人物介紹 -->
-  <section>
-    <div class="character">
-      <div class="character-img">
-        <img src="bride.jpg" alt="新娘">
-      </div>
-      <div class="character-text">
-        <h2>新娘｜Anna</h2>
-        <p>溫柔體貼的她，喜歡旅行與攝影。今天，她即將開啟人生新的篇章。</p>
-      </div>
+  <section id="about">
+    <div class="bg"></div>
+  
+    <div class="about-introduction">
+      <p>
+        我們的永遠從這一天開始，能與你一起度過這特別的一天，是我們的榮幸。<br>
+        Our forever begins on this day. We could be honored to have you with us on this special day.
+      </p>
     </div>
-
-    <div class="character" style="margin-top:60px;">
-      <div class="character-text">
-        <h2>新郎｜William</h2>
-        <p>樂觀開朗的他，熱愛音樂與運動。今天，他迎來人生最幸福的一刻。</p>
-      </div>
-      <div class="character-img">
-        <img src="groom.jpg" alt="新郎">
-      </div>
+  
+    <figure class="quote">
+      <blockquote>Love is not about time,<br>it’s about moments we share.</blockquote>
+      <figcaption>— Our Journey Together</figcaption>
+    </figure>
+  
+    <div class="about-moments">
+      <figure class="vertical">
+        <div class="img-wrap parallax">
+          <div class="grad"></div>
+          <img src="./img/gallery-1.webp" alt="First Trip Together" />
+        </div>
+        <dl>
+          <dt>First Trip Together</dt>
+          <dd>Kyoto, 2021</dd>
+        </dl>
+      </figure>
+  
+      <figure class="vertical">
+        <div class="img-wrap parallax">
+          <div class="grad"></div>
+          <img src="./img/gallery-2.webp" alt="Engagement Day" />
+        </div>
+        <dl>
+          <dt>Engagement Day</dt>
+          <dd>Taipei, 2024</dd>
+        </dl>
+      </figure>
+  <img src="https://picsum.photos/300/200/?random=10">
+      <figure class="horizontal">
+        <div class="img-wrap parallax">
+          <div class="grad"></div>
+          <img src="./img/gallery-3.webp" alt="Wedding Shooting" />
+        </div>
+        <dl>
+          <dt>Wedding Shooting</dt>
+          <dd>Paris, 2025</dd>
+        </dl>
+      </figure>
     </div>
+  
+    <figure class="quote">
+      <blockquote>Every picture is a heartbeat,<br>a memory frozen in time.</blockquote>
+      <figcaption>— William & Léa</figcaption>
+    </figure>
   </section>
+  
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
 
-  <!-- 婚禮資訊 -->
-  <section id="wedding-info">
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+const tlAbout = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#about",
+    start: "top top",
+    end: "+=6000", // 長距滾動
+    scrub: 2,
+    pin: true
+  }
+});
+
+// 1. 背景視差
+tlAbout.fromTo("#about .bg", { yPercent: 0 }, { yPercent: -100, duration: 25 }, "<");
+
+// 2. 文字滑動
+tlAbout.fromTo("#about .about-introduction", { yPercent: 100 }, { yPercent: -300, duration: 80 }, "<");
+
+// 3. 第一段 quote 淡入
+tlAbout.fromTo("#about .quote:nth-of-type(1)", { opacity: 0, yPercent: 50 }, { opacity: 1, yPercent: -100, duration: 50 }, "<");
+
+// 4. 每張圖片獨立滾動
+const figs = gsap.utils.toArray("#about .about-moments figure");
+figs.forEach((fig, i) => {
+  const fromY = [100, -200, -350][i] ?? 100;
+  const toY = i === figs.length - 1 ? -1000 : -600;
+
+  tlAbout.fromTo(fig, { yPercent: fromY }, { yPercent: toY, duration: 80 }, i === 0 ? "<" : "-=60");
+});
+
+// 5. 最後一段 quote 淡入
+tlAbout.fromTo("#about .quote:nth-of-type(2)", { opacity: 0, yPercent: 100 }, { opacity: 1, yPercent: -200, duration: 50 }, "-=40");
+
+</script>
+</body>
+</html>
