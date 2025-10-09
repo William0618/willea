@@ -60,8 +60,7 @@ header nav .right-part {
   justify-content: space-between;
   align-items: center;
   background-color: var(--color-bg);
-  border-bottom: 1px solid var(--color-bg);
-  background-color: var(--color-primary);
+  border-bottom: 1px solid var(--color-primary);
 }
 
 .menu-btn {
@@ -77,7 +76,6 @@ header nav .right-part {
   font-family: "Bodoni Moda", serif;
   font-weight: 700;
   color: var(--color-primary);
-  color: var(--color-bg);
   line-height: 30px;
 }
 
@@ -85,7 +83,7 @@ header nav .right-part {
 
 /* hero part */
 #hero {
-  margin-top: -51px;
+  margin-top: -70px;
   height: 100vh;
   display: flex;
   flex-wrap: wrap;
@@ -132,7 +130,7 @@ header nav .right-part {
 
 #hero .right-part img {
   width: 40%;
-  margin: 51px auto 20px;
+  margin: 70px auto 20px;
   /* position: absolute;
   top: 50%;
   left: 50%;
@@ -181,7 +179,7 @@ header nav .right-part {
 
 #save-the-date {
   height: 100vh;
-  padding: 51px 4%;
+  padding: 70px 4%;
   align-content: center;
   text-align: center;
   background: linear-gradient(180deg, #f9fafb 0%, #eef3f7 100%);
@@ -303,7 +301,7 @@ header nav .right-part {
   width: 100vw;
   height: 100vh;
   position: relative;
-  padding: 51px 6%;
+  padding: 70px 6%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -428,7 +426,7 @@ header nav .right-part {
 }
 /* End of character section */
 #gallery {
-  padding: 51px 4%;
+  padding: 70px 4%;
   width: 100%;
   height: auto;
   background-color: var(--color-primary);
@@ -500,11 +498,11 @@ header nav .right-part {
 /* wedding-info */
 #wedding-info {
   height: 100vh;
-  padding: 51px 4%;
+  padding: 70px 4%;
   background: linear-gradient(180deg, #fff, var(--color-shadow));
 }
 #wedding-info .info-content{
-  margin: 51px auto 0;
+  margin: 70px auto 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -595,7 +593,7 @@ header nav .right-part {
   background-size: cover;
   background-position: center;
   text-align: center;
-  padding: 51px 2%;
+  padding: 70px 2%;
   overflow: hidden;
 }
 
@@ -739,7 +737,7 @@ header nav .right-part {
   font-size: 3rem;
   font-weight: bold;
   color: var(--color-accent);
-  min-width: 51px;
+  min-width: 70px;
 }
 
 .time-box small {
@@ -802,7 +800,7 @@ footer img{
     flex-basis: 100%;
   }
   #hero .right-part{
-    padding: 51px 4%;
+    padding: 70px 4%;
     flex-basis: 100%;
     height: auto;
   }
