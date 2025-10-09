@@ -226,8 +226,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
   });
+  const tlGallery = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#gallery",
+      start: "top top",
+      end: "+=5000", // 長距滾動
+      scrub: 2,
+      pin: true,
+    }
+  });
+  
+  tlGallery.fromTo("#gallery .bg", { yPercent: 0 }, { yPercent: -100, duration: 25 }, "<");
+  tlGallery.fromTo(".gallery-intro", { yPercent: 100 }, { yPercent: -200, duration: 80 }, "<");
+  
+  gsap.utils.toArray("#gallery .quote").forEach((fig, i) => {
+      tlGallery.fromTo(fig, 
+        { yPercent: 100, opacity: 0 }, 
+        { yPercent: -300, opacity: 1, duration: 90 }, 
+        "<"
+      );
+  });
+  gsap.utils.toArray("#gallery .gallery-moments figure").forEach((fig, i) => {
+      tlGallery.fromTo(fig, 
+        { yPercent: 100,}, 
+        { yPercent: -300, duration: 90 }, 
+        "-=70"
+      );
+  });
 
-  const weddingDate = new Date("2025-11-29T12:09:30+08:00").getTime();
+  
+  
+  const weddingDate = new Date("2025-11-29T09:30:00+08:00").getTime();
   const timer = setInterval(updateCountdown, 1000);
   updateCountdown();
   function updateCountdown() {

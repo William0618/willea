@@ -434,6 +434,70 @@ header nav .right-part {
   text-align: start;
 }
 /* End of character section */
+#gallery {
+  padding: 70px 4%;
+  width: 100%;
+  height: auto;
+  background-color: var(--color-primary);
+  color: rgb(255, 255, 255);
+  z-index: 3;
+}
+
+#gallery .bg {
+  position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    background-color: var(--color-primary);
+}
+
+.border {
+  box-sizing: border-box;
+  padding: 2vw;
+}
+.gallery-intro{
+  padding-left: 55vw;
+  padding-bottom: 18vh;
+}
+
+.quote {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  transform-origin: center center;
+}
+.quote blockquote {
+  /* font-size: 7vw; */
+  font-family: 'EB Garamond', serif;
+}
+#gallery .gallery-moments{
+  width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0px auto;
+}
+#gallery .gallery-moments figure{
+  display: flex;
+}
+#gallery .gallery-moments figure:nth-child(2n) {
+  align-items: end;
+}
+
+#gallery .gallery-moments figure.vertical {
+  flex-direction: column;
+}
+#gallery .img-wrap {
+  width: fit-content;
+  position: relative;
+}
+#gallery .img-wrap img{
+  width: 27vw;
+  height: 100%;
+  object-fit: contain;
+}
 
 /* wedding-info */
 #wedding-info {
@@ -758,11 +822,6 @@ footer {
 footer img{
   height: 30px;
 }
-/* 手機版 */
-@media (max-width: 768px) {
-
-}
-
 
 /* End of wedding info */
 
@@ -848,7 +907,9 @@ footer img{
     right: -2%;
   }
   /* character section */
-
+  #gallery .img-wrap img{
+    width: 65vw;
+  }
   /* wedding-info section */
   #wedding-info {
     height: unset;
