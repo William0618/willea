@@ -501,6 +501,10 @@ header nav .right-part {
   height: 100%;
   object-fit: contain;
 }
+#gallery .img-wrap p{
+  display: flex;
+  text-align: end;
+}
 
 /* wedding-info */
 #wedding-info {
