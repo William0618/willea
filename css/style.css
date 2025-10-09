@@ -223,8 +223,8 @@ header nav .right-part {
   transform: translateY(40px);
 }
 
-#save-the-date .emotional-text {
-  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+#save-the-date .text {
+  font-size: 1rem;
   line-height: 1.9;
   color: #555;
   font-weight: 400;
@@ -232,14 +232,14 @@ header nav .right-part {
   transform: translateY(40px);
 }
 
-#save-the-date .emotional-text span {
-  display: block;
+#save-the-date .text span {
   margin-top: 25px;
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  display: block;
   font-family: 'EB Garamond', serif;
   font-weight: 600;
-  color: #777;
+  font-size: 1rem;
   font-style: italic;
+  color: #777;
   letter-spacing: 0.5px;
 }
 
@@ -285,9 +285,6 @@ header nav .right-part {
   width: 40%;
   line-height: 1.7;
 }
-.image {
-  transition: all 1s ease;
-}
 .image:hover {
   cursor: none;
 }
@@ -298,6 +295,7 @@ header nav .right-part {
   object-fit: cover;
   object-position: top center;
   border-radius: 10px;
+  transition: all 1s ease;
 }
 
 #invitation .image3 {
@@ -306,6 +304,7 @@ header nav .right-part {
   object-fit: cover;
   object-position: top center;
   border-radius: 15px;
+  transition: all 1s ease;
 }
 
 
@@ -369,6 +368,7 @@ header nav .right-part {
   position: relative;
   overflow: hidden;
 }
+
 #character > h3 {
   font-family: mint;
   font-size: 12px;
@@ -437,14 +437,18 @@ header nav .right-part {
 
 /* wedding-info */
 #wedding-info {
+  height: 100vh;
+  padding: 70px 4%;
+  background: linear-gradient(180deg, #fff, var(--color-shadow));
+}
+#wedding-info .info-content{
+  margin: 70px auto 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5%;
-  padding: 8% 4%;
-  background: linear-gradient(180deg, #fff, var(--color-shadow));
-}
+  max-width: 1240px;
 
+}
 #wedding-info .info-text {
   flex-basis: 50%;
   font-family: "EB Garamond", serif;
@@ -501,27 +505,13 @@ header nav .right-part {
   font-size: 0.95rem;
 }
 
-#wedding-info .info-image {
-  flex-basis: 45%;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-}
-
-#wedding-info .info-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
 .info-map{
   flex-basis: 50%;
 }
 .info-map img {
   width: 100%;
-  /* max-width: 480px; */
-  height: auto;
-  filter: drop-shadow(0 4px 20px rgba(0,0,0,0.08));
+  height: 100%;
+  object-fit: contain;
   transition: transform 0.6s ease;
 }
 
@@ -849,21 +839,7 @@ footer img{
     height: 80px;
   }
 
-  .button {
-    font-size: 11px;
-    background-color: transparent;
-    border: 1px solid white;
-    height: 32px;
-    padding: 3px 12px 2px;
-    border-radius: 24px;
-    font-weight: 500;
-    color: white;
-  }
-  .button:hover {
-    background-color: rgba(255, 255, 255, 0.074);
-  }
   /* character section */
-
   .groom-img{
     left: -2%;
   }
@@ -871,22 +847,26 @@ footer img{
   .bride-img{
     right: -2%;
   }
+  /* character section */
 
+  /* wedding-info section */
   #wedding-info {
-    flex-direction: column;
+    height: unset;
+  }
+  #wedding-info .info-content {
+    flex-wrap: wrap;
     text-align: center;
-    padding: 12% 6%;
   }
 
   #wedding-info .info-text,
-  #wedding-info .info-image {
+  #wedding-info .info-map {
     flex-basis: 100%;
   }
 
-  #wedding-info .info-image {
+  #wedding-info .info-map {
     margin-top: 30px;
   }
-  /* End of character section */
+  /* End of wedding-info section */
   .countdown-wrapper{
     gap: 25px;
   }

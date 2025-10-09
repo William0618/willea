@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
       duration: 0.8,
       ease: "power3.out"
     }, "-=0.4")
-    .from("#save-the-date .emotional-text", {
+    .from("#save-the-date .text", {
       y: 40,
       opacity: 0,
       duration: 1,
@@ -290,10 +290,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const text = item.comment.trim();
       const shortText = text.length > maxChars ? text.slice(0, maxChars) + '…' : text;
       bubble.textContent = shortText;
-      // bubble.textContent = item.comment.trim();
 
-      const base = Math.min(50 + shortText.length * 5, 280);
-      const size = gsap.utils.random(base * 0.8, base * 1.1);
+      const base = Math.min(50 + text.length * 5, 280);
+      const size = base; // 精準大小控制
       bubble.style.width = `${size}px`;
       bubble.style.height = `${size}px`;
 
@@ -312,14 +311,11 @@ document.addEventListener("DOMContentLoaded", () => {
         vx,
         vy,
         size,
-        vxInitial: vx, // ← 記住初始速度
+        vxInitial: vx,
         vyInitial: vy
       });
-
-      bubblesArr.push({ el: bubble, baseX: x, baseY: y, size });
     });
 
-    // 📦 更新位置
     function updateBubbles() {
       const containerRect = container.getBoundingClientRect();
       const vw = containerRect.width;
@@ -351,8 +347,22 @@ document.addEventListener("DOMContentLoaded", () => {
       onLeaveBack: () => gsap.ticker.remove(ticker),
     });
 
-    // 📍 滑鼠靠近 → 逃開
-    container.addEventListener("pointermove", (e) => {
+    // 📍 桌機：滑鼠靠近逃開
+    container.addEventListener("mousemove", handlePointerMove);
+
+    // 📱 手機：手指移動模擬滑鼠
+    container.addEventListener("touchmove", (e) => {
+      const touch = e.touches[0];
+      if (!touch) return;
+      handlePointerMove(touch);
+    });
+
+    // 📍 手指/滑鼠移出：自然減速回復
+    container.addEventListener("mouseleave", resetBubbles);
+    container.addEventListener("touchend", resetBubbles);
+    container.addEventListener("touchcancel", resetBubbles);
+
+    function handlePointerMove(e) {
       const rect = container.getBoundingClientRect();
       const mouseX = e.clientX - rect.left;
       const mouseY = e.clientY - rect.top;
@@ -364,7 +374,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const dy = mouseY - cy;
         const dist = Math.sqrt(dx * dx + dy * dy);
 
-        const maxDist = 250;
+        const maxDist = 200;
         if (dist < maxDist) {
           const angle = Math.atan2(dy, dx);
           const force = (maxDist - dist) * 0.08;
@@ -372,20 +382,20 @@ document.addEventListener("DOMContentLoaded", () => {
           bubble.vy -= Math.sin(angle) * force;
         }
       });
-    });
+    }
 
-    // 📍 滑鼠離開 → 自動「內插回原始速度」
-    container.addEventListener("pointerleave", () => {
+    function resetBubbles() {
       bubbles.forEach(bubble => {
         gsap.to(bubble, {
-          duration: 2.5, // 回復的時間（秒）越長越自然
+          duration: 5,
           vx: bubble.vxInitial,
           vy: bubble.vyInitial,
           ease: "power2.out"
         });
       });
-    });
+    }
   }
+
 
 
 
