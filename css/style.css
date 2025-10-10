@@ -24,9 +24,11 @@ h6,
 figure {
   margin: 0;
 }
-a{
+
+a {
   text-decoration: none;
 }
+
 body {
   position: relative;
   margin: 0px;
@@ -157,6 +159,7 @@ header nav .right-part {
   height: 1px;
   background: var(--color-secondary);
 }
+
 #hero .save-btn {
   height: 32px;
   margin: 10px auto;
@@ -252,7 +255,8 @@ header nav .right-part {
   flex-direction: column;
   align-items: center;
 }
-#invitation > .text > h1 {
+
+#invitation>.text>h1 {
   font-family: "Bodoni Moda", serif;
   font-weight: 700;
   /* font-size: 4.16vw; */
@@ -265,15 +269,17 @@ header nav .right-part {
   gap: 12px;
 }
 
-#invitation > p {
+#invitation>p {
   font-size: 16px;
   font-family: 'Noto Serif TC', serif;
   text-align: center;
   line-height: 1.7;
 }
+
 .image:hover {
   cursor: none;
 }
+
 #invitation .image1,
 #invitation .image2 {
   width: 65px;
@@ -293,57 +299,7 @@ header nav .right-part {
   transition: all 1s ease;
 }
 
-
-
-
 /* character section */
-/* #character {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-  padding: 70px 6%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-
-  overflow: hidden;
-}
-
-.character-img {
-  flex-basis: 50%;
-  height: 100%;
-  z-index: 1;
-}
-
-.character-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-}
-
-#character .bride-part,
-#character .groom-part {
-  position: absolute;
-  width: 31.25vw;
-  object-fit: cover;
-  display: flex;
-  justify-content: center;
-}
-
-#character .bride-part {
-  left: -0%;
-}
-
-#character .groom-part {
-  right: -0%;
-} */
-
-
-
-
-
 #character {
   height: 100vh;
   display: flex;
@@ -355,21 +311,24 @@ header nav .right-part {
   overflow: hidden;
 }
 
-#character > h3 {
+#character>h3 {
   font-family: mint;
   font-size: 12px;
   font-weight: 900;
 }
-#character > h3 > svg {
+
+#character>h3>svg {
   margin: 0px 25px;
 }
+
 .character-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2vh;
 }
-#character > .character-content > h1 {
+
+#character>.character-content>h1 {
   font-family: rose;
   font-size: 5.104vw;
   font-weight: 500;
@@ -399,6 +358,7 @@ header nav .right-part {
   rotate: 4deg;
   border-radius: 35px;
 }
+
 .intro-text h2 {
   font-family: "Bodoni Moda", serif;
   font-weight: 700;
@@ -420,15 +380,23 @@ header nav .right-part {
   line-height: 1.6;
   text-align: start;
 }
-.intro-text span{
+
+.intro-text span {
   font-family: "Bodoni Moda", serif;
   font-weight: 700;
 }
+
 /* End of character section */
+
+/* gallery section */
+
 #gallery {
+  position: relative;
   padding: 70px 4%;
   width: 100%;
   height: auto;
+  /* display: flex;
+  flex-direction: column; */
   background-color: var(--color-primary);
   color: rgb(255, 255, 255);
   z-index: 3;
@@ -436,61 +404,69 @@ header nav .right-part {
 
 #gallery .bg {
   position: absolute;
-    width: 100vw;
-    height: 100vh;
-    top: 0px;
-    left: 0px;
-    z-index: -1;
-    background-color: var(--color-primary);
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  background-color: var(--color-primary);
 }
 
 .border {
   box-sizing: border-box;
   padding: 2vw;
 }
-.gallery-intro{
+
+#gallery .gallery-intro {
   padding-left: 55vw;
   padding-bottom: 18vh;
 }
-
+.content{
+  padding: 16vh 0;
+}
 .gallery-description {
   position: relative;
   transform-origin: center center;
   text-align: center;
   z-index: 1;
 }
+
 .gallery-description blockquote,
 .gallery-description figcaption {
   font-family: "Bodoni Moda", serif;
   font-weight: 700;
 }
-#gallery .gallery-moments{
+
+#gallery .gallery-moments {
   width: 80vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 0px auto;
-}
-#gallery .gallery-moments figure{
+  margin: 0px auto;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-#gallery .gallery-moments figure:nth-child(2n) {
+
+#gallery .gallery-moments figure {
+  display: flex;
+  flex-direction: column;
+}
+
+#gallery .gallery-moments figure:nth-child(even){
   align-items: end;
 }
 
-#gallery .gallery-moments figure.vertical {
-  flex-direction: column;
-}
+
 #gallery .img-wrap {
   width: fit-content;
   position: relative;
 }
-#gallery .img-wrap img{
+
+#gallery .img-wrap img {
   width: 27vw;
   height: 100%;
   object-fit: contain;
 }
-#gallery .img-wrap p{
+
+#gallery .img-wrap p {
   display: flex;
   text-align: end;
 }
@@ -501,14 +477,16 @@ header nav .right-part {
   padding: 70px 4%;
   background: linear-gradient(180deg, #fff, var(--color-shadow));
 }
-#wedding-info .info-content{
-  margin: 70px auto 0;
+
+#wedding-info .info-content {
+  /* margin: 70px auto 0; */
   display: flex;
   align-items: center;
   justify-content: center;
   max-width: 1240px;
 
 }
+
 #wedding-info .info-text {
   flex-basis: 50%;
   font-family: "Bodoni Moda", serif;
@@ -544,10 +522,11 @@ header nav .right-part {
   letter-spacing: 1px;
 }
 
-#wedding-info .venue b{
+#wedding-info .venue b {
   color: var(--color-accent);
   font-size: 18px;
 }
+
 #wedding-info .address {
   margin-top: 6px;
   color: var(--color-secondary);
@@ -569,9 +548,10 @@ header nav .right-part {
   font-size: 0.95rem;
 }
 
-.info-map{
+.info-map {
   flex-basis: 50%;
 }
+
 .info-map img {
   width: 100%;
   height: 100%;
@@ -582,6 +562,7 @@ header nav .right-part {
 .info-map img:hover {
   transform: scale(1.02);
 }
+
 /* End of weddings-info */
 
 /* #guest-bubbles {
@@ -647,28 +628,31 @@ header nav .right-part {
   filter: brightness(0.95) saturate(1.1);
 }
 
-#guest-bubbles::before{
-  content:"";
-  position:absolute; inset:0;
+#guest-bubbles::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   backdrop-filter: blur(1px);
-  background: rgba(255,255,255,0.20);
+  background: rgba(255, 255, 255, 0.20);
   z-index: 1;
 }
-.bubbles { 
-  position: relative; 
-  width:100%; 
-  height:100%; 
-  z-index:2; 
+
+.bubbles {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
 }
 
 .bubble {
   position: absolute;
   padding: 10px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  left: 0; 
-  top: 0; /* 會用 style.left/top 放初始位置 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  top: 0;
+  /* 會用 style.left/top 放初始位置 */
   /* --mouse-x: 0px;
   --mouse-y: 0px;
   --float-x: 0px;
@@ -677,11 +661,11 @@ header nav .right-part {
              translate3d(var(--float-x), var(--float-y), 0); */
   will-change: transform;
   pointer-events: none;
-  text-align:center;
+  text-align: center;
   font-size: 14px;
-  line-height:1.3;
-  border-radius:50%;
-  user-select:none;
+  line-height: 1.3;
+  border-radius: 50%;
+  user-select: none;
   /* background-image:
     radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(255,255,255,0.25)),
     radial-gradient(circle at 70% 70%, rgba(255,0,150,0.10), rgba(0,200,255,0.07)); */
@@ -693,16 +677,16 @@ header nav .right-part {
   background-clip: text;
   -webkit-background-clip: text;
   box-shadow:
-    0 8px 28px rgba(0,0,0,0.06),
-    inset 4px 4px 12px rgba(255,255,255,0.45),
-    inset -4px -4px 12px rgba(0,0,0,0.08);
-  border: 1px solid rgba(255,255,255,0.35);
+    0 8px 28px rgba(0, 0, 0, 0.06),
+    inset 4px 4px 12px rgba(255, 255, 255, 0.45),
+    inset -4px -4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(3px);
   overflow-wrap: break-all;
   transition: transform 0.18s ease-out;
   overflow: hidden;
   word-break: break-word;
-  
+
 }
 
 
@@ -764,16 +748,18 @@ footer {
   background-color: var(--color-shadow);
   font-size: 14px;
 }
-footer img{
+
+footer img {
   height: 30px;
 }
 
 /* End of wedding info */
 
 @media (max-width: 767px) {
-  .mobile-hide{
+  .mobile-hide {
     display: none;
   }
+
   /* header part */
   .header-text {
     font-size: 30px;
@@ -795,19 +781,22 @@ footer img{
     height: unset;
   }
 
-  #hero .left-part{
+  #hero .left-part {
     height: 100vh;
     flex-basis: 100%;
   }
-  #hero .right-part{
+
+  #hero .right-part {
     padding: 70px 4%;
     flex-basis: 100%;
     height: auto;
   }
-  #hero .right-part img{
+
+  #hero .right-part img {
     width: 70%;
 
   }
+
   /*End of hero part */
   #invitation {
     display: flex;
@@ -823,12 +812,13 @@ footer img{
     flex-direction: column;
     align-items: center;
   }
-  #invitation > .text > h1 {
+
+  #invitation>.text>h1 {
     gap: 5px;
     font-size: 1.5rem;
   }
 
-  #invitation > p {
+  #invitation>p {
     font-size: 14px;
   }
 
@@ -844,21 +834,24 @@ footer img{
   }
 
   /* character section */
-  .groom-img{
+  .groom-img {
     left: -2%;
   }
 
-  .bride-img{
+  .bride-img {
     right: -2%;
   }
+
   /* character section */
-  #gallery .img-wrap img{
+  #gallery .img-wrap img {
     width: 65vw;
   }
+
   /* wedding-info section */
   #wedding-info {
     height: unset;
   }
+
   #wedding-info .info-content {
     flex-wrap: wrap;
     text-align: center;
@@ -872,17 +865,19 @@ footer img{
   #wedding-info .info-map {
     margin-top: 30px;
   }
+
   /* End of wedding-info section */
-  .countdown-wrapper{
+  .countdown-wrapper {
     gap: 25px;
   }
+
   #guest-bubbles {
     height: 150vh;
     background-image: url("../img/LIMIYA1140417(163).webp");
     background-position: bottom center;
   }
 
-  .bubble{
+  .bubble {
     font-size: clamp(0.625rem, 0.4039rem + 0.9828vw, 0.875rem);
   }
 }

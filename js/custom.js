@@ -230,29 +230,92 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollTrigger: {
       trigger: "#gallery",
       start: "top top",
-      end: "+=5000", // 長距滾動
+      end: "+=6000", // 長距滾動
       scrub: 2,
       pin: true,
     }
   });
-  
-  tlGallery.fromTo("#gallery .bg", { yPercent: 0 }, { yPercent: -100, duration: 25 }, "<");
-  tlGallery.fromTo(".gallery-intro", { yPercent: 100 }, { yPercent: -200, duration: 80 }, "<");
-  
-  gsap.utils.toArray("#gallery .gallery-description").forEach((fig, i) => {
-      tlGallery.fromTo(fig, 
-        { yPercent: 100, opacity: 0 }, 
-        { yPercent: -300, opacity: 1, duration: 90 }, 
-        "<"
-      );
-  });
-  gsap.utils.toArray("#gallery .gallery-moments figure").forEach((fig, i) => {
-      tlGallery.fromTo(fig, 
-        { yPercent: 100,}, 
-        { yPercent: -300, duration: 90 }, 
-        "-=70"
-      );
-  });
+  const gallery = document.querySelector("#gallery");
+  tlGallery.fromTo(gallery.querySelector(".bg"), { yPercent: 0 }, { yPercent: -100, duration: 25 }, "<");
+  tlGallery.fromTo(gallery.querySelector(".gallery-intro"), 
+    { yPercent: 100 }, 
+    { yPercent: -300, duration: 100 }, 
+  "<-1");
+  tlGallery.addLabel('gallery', '-=74.5');
+  tlGallery.fromTo(gallery.querySelectorAll(".gallery-description")[0], 
+    { yPercent: 100, opacity: 0},
+    { yPercent: -1200, opacity: 1, duration: 125 },
+    '-=84'
+  );
+  const moments1 = gallery.querySelectorAll(".gallery-moments")[0].querySelectorAll("figure");
+
+  tlGallery.fromTo(moments1[0],
+    { yPercent: 100 },
+    { yPercent: -1200, duration: 90 },
+    '-=115'
+  );
+  tlGallery.fromTo(moments1[1], 
+    { yPercent: 150 },
+    { yPercent: -1200, duration: 90 },
+    '-=95'
+  );
+  tlGallery.fromTo(moments1[2], 
+    { yPercent: 200 },
+    { yPercent: -1200, duration: 90 },
+    '-=90'
+  );
+  tlGallery.fromTo(moments1[3], 
+    { yPercent: 300 },
+    { yPercent: -1200, duration: 70 },
+    '-=80'
+  );
+  tlGallery.fromTo(gallery.querySelectorAll(".gallery-description")[1], 
+    { yPercent: 400,},
+    { yPercent: -1500, duration: 100 },
+    '-=98'
+  );
+  // const moments2 = gallery.querySelectorAll(".gallery-moments")[1].querySelectorAll("figure");
+
+  // tlGallery.fromTo(moments2[0], 
+  //   { yPercent: 100 },
+  //   { yPercent: -1500, duration: 90 },
+  //   '-=75'
+  // );
+  // tlGallery.fromTo(moments2[1], 
+  //   { yPercent: 150 },
+  //   { yPercent: -2000, duration: 90 },
+  //   '-=70'
+  // );
+
+
+
+  // gsap.utils.toArray("#gallery .gallery-description").forEach((fig, i) => {
+  //     tlGallery.fromTo(fig, 
+  //       { yPercent: 100, opacity: 0 }, 
+  //       { yPercent: -300, opacity: 1, duration: 90 }, 
+  //       "<"
+  //     );
+  // });
+
+  // const firstMoments = gallery.querySelectorAll('.gallery-moments')[0].querySelectorAll('figure');
+  // gsap.utils.toArray(firstMoments).forEach((fig, i) => {
+  //   console.log(fig);
+  //     tlGallery.fromTo(fig, 
+  //       { yPercent: 100,}, 
+  //       { yPercent: -300, duration: 90 }, 
+  //       "-=70"
+  //     );
+  // });
+  // const secondMoments = gallery.querySelectorAll('.gallery-moments')[1].querySelectorAll('figure');
+
+  // gsap.utils.toArray(secondMoments).forEach((fig, i) => {
+  //   console.log(fig);
+  //     tlGallery.fromTo(fig, 
+  //       { yPercent: 100,}, 
+  //       { yPercent: -1200, duration: 90 }, 
+  //       "-=70"
+  //     );
+  // });
 
   
   
