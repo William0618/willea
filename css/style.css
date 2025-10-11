@@ -478,6 +478,7 @@ header nav .right-part {
   width: 27vw;
   height: 100%;
   object-fit: contain;
+  object-position: bottom;
 }
 
 #gallery .img-wrap p {
