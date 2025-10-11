@@ -246,33 +246,66 @@ document.addEventListener("DOMContentLoaded", () => {
     { yPercent: -1200, opacity: 1, duration: 90 },
     '-=90'
   );
-
+  const settings = {
+    desktop: [
+      { x: 100, endOffset: -500, pinTarget: "#imgone", trigger: "#photo-collection", start: "top 0%" }, // 第一張特例
+      { x: -300, endOffset: -400 },
+      { x: 500, endOffset: -300 },
+      { x: -800, endOffset: -200 },
+      { x: 900, endOffset: -100 },
+    ],
+    mobile: [
+      { x: 150, endOffset: -500, pinTarget: "#imgone", trigger: "#photo-collection", start: "top 0%" }, // 第一張特例
+      { x: -120, endOffset: -400 },
+      { x: 80, endOffset: -300 },
+      { x: -50, endOffset: -200 },
+      { x: 60, endOffset: -100 },
+    ],
+  };
   const photoCollection = document.querySelectorAll("#photo-collection .img-box");
-  const settings = [
-    { x: 100, endOffset: -500, pinTarget: "#imgone", trigger: "#photo-collection", start: "top 0%" }, // 第一張特例
-    { x: -300, endOffset: -400 },
-    { x: 500, endOffset: -300 },
-    { x: -800, endOffset: -200 },
-    { x: 900, endOffset: -100 },
-  ];
+  mm.add("(min-width: 768px)", () => {
+    photoCollection.forEach((img, i) => {
+      const s = settings['desktop'][i] || {};
 
-  photoCollection.forEach((img, i) => {
-    const s = settings[i] || {};
+      gsap.to(img, {
+        boxShadow: "0 35px 60px rgba(0, 0, 0, 0.35)",
+        x: s.x || 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          scroller: "body",
+          trigger: s.trigger || img,
+          start: s.start || "top 10%",
+          end: `top ${s.endOffset}%`,         // 字串模板要加反引號
+          scrub: 2,
+          pin: s.pinTarget ? document.querySelector(s.pinTarget) : true,
+          // markers: true,
+        }
+      });
+    });
 
-    gsap.to(img, {
-      boxShadow: "0 35px 60px rgba(0, 0, 0, 0.35)",
-      x: s.x || 0,
-      duration: 0.8,
-      ease: "power3.out",
-      scrollTrigger: {
-        scroller: "body",
-        trigger: s.trigger || img,
-        start: s.start || "top 10%",
-        end: `top ${s.endOffset}%`,         // 字串模板要加反引號
-        scrub: 2,
-        pin: s.pinTarget ? document.querySelector(s.pinTarget) : true,
-        // markers: true,
-      }
+  });
+
+  mm.add("(max-width: 767px)", () => {
+
+    photoCollection.forEach((img, i) => {
+      const s = settings['mobile'][i] || {};
+
+      gsap.to(img, {
+        boxShadow: "0 35px 60px rgba(0, 0, 0, 0.35)",
+        x: s.x || 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          scroller: "body",
+          trigger: s.trigger || img,
+          start: s.start || "top 10%",
+          end: `top ${s.endOffset}%`,         // 字串模板要加反引號
+          scrub: 2,
+          pin: s.pinTarget ? document.querySelector(s.pinTarget) : true,
+          // markers: true,
+        }
+      });
     });
   });
 
