@@ -192,8 +192,8 @@ document.addEventListener("DOMContentLoaded", () => {
       scroller: "body",
       trigger: "#gallery",
       start: "top top",
-      end: "+=4000",
-      scrub: 2,
+      end: "+=3500",
+      scrub: 3,
       // markers: true,
     }
   });
