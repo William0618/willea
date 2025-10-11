@@ -65,6 +65,10 @@ header nav .right-part {
   align-items: center;
   background-color: var(--color-bg);
   border-bottom: 1px solid var(--color-primary);
+
+  background-color: var(--color-primary);
+  border-bottom: 1px solid var(--color-bg);
+  
 }
 
 .menu-btn {
@@ -79,15 +83,16 @@ header nav .right-part {
   font-size: 30px;
   font-family: "Bodoni Moda", serif;
   font-weight: 700;
-  color: var(--color-primary);
   line-height: 30px;
+  color: var(--color-primary);
+  color: var(--color-bg);
 }
 
 /* End of header part */
 
 /* hero part */
 #hero {
-  margin-top: -70px;
+  margin-top: -51px;
   height: 100vh;
   display: flex;
   flex-wrap: wrap;
@@ -99,9 +104,10 @@ header nav .right-part {
   flex-basis: 50%;
   height: 100%;
   overflow: hidden;
-
 }
-
+#hero .right-part{
+  background-color: var(--color-bg);
+}
 #hero .left-part img {
   height: 100%;
   width: 100%;
@@ -114,7 +120,7 @@ header nav .right-part {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("../img/banner-mobile.webp");
+  background-image: url("../img/banner.webp");
   background-size: cover;
   background-position: 50% 50%;
   will-change: transform;
@@ -134,7 +140,7 @@ header nav .right-part {
 
 #hero .right-part img {
   width: 40%;
-  margin: 70px auto 20px;
+  margin: 51px auto 20px;
   /* position: absolute;
   top: 50%;
   left: 50%;
@@ -184,7 +190,7 @@ header nav .right-part {
 
 #save-the-date {
   height: 100vh;
-  padding: 70px 4%;
+  padding: 51px 4%;
   align-content: center;
   text-align: center;
   background: linear-gradient(180deg, #f9fafb 0%, #eef3f7 100%);
@@ -311,6 +317,7 @@ header nav .right-part {
   gap: 13vh;
   position: relative;
   overflow: hidden;
+  background-color: var(--color-bg);
 }
 
 #character>h3 {
@@ -394,7 +401,7 @@ header nav .right-part {
 
 #gallery {
   position: relative;
-  padding: 70px 4%;
+  padding: 51px 4%;
   width: 100%;
   height: auto;
   /* display: flex;
@@ -481,11 +488,11 @@ header nav .right-part {
 /* wedding-info */
 #wedding-info {
   height: 100vh;
-  padding: 70px 4%;
+  padding: 51px 4%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, #fff, var(--color-shadow));
+  /* background: linear-gradient(180deg, #fff, var(--color-shadow)); */
 }
 
 #wedding-info .info-text {
@@ -566,12 +573,84 @@ header nav .right-part {
 
 /* End of weddings-info */
 
+/* photo-collection section */
+#photo-collection {
+  position: relative;
+  padding: 51px 4%;
+  width: 100vw;
+  height: 650vh;
+  overflow: hidden;
+}
+
+#photo-collection .collection-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.20);
+  z-index: 1;
+}
+#photo-collection > .img-box {
+  /* width: 40vw; */
+  max-width: 500px;
+  max-height: 80vh;
+  position: absolute;
+  perspective: 1000px;
+
+}
+#photo-collection img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  /* box-shadow: 0 35px 60px rgba(0, 0, 0, 0.35); */
+}
+#imgone {
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, 0%) rotate(10deg);
+  z-index: 1;
+  top: 10vh;
+}
+
+#imgtwo {
+  left: 50%;
+  z-index: 2;
+  top: 150vh;
+  transform: translate(-50%, 0%) rotate(-5deg);
+
+  
+}
+
+#imgthree {
+  left: 50%;
+  z-index: 3;
+  top: 250vh;
+  transform: translate(-50%, 0%) rotate(-20deg);
+}
+
+#imgfour {
+  left: 50%;
+  z-index: 4;
+  top: 350vh;
+  transform: translate(-50%, 0%) rotate(25deg);
+}
+
+#imgfive {
+  left: 50%;
+  z-index: 5;
+  top: 450vh;
+  transform: translate(-50%, 0%) rotate(-12deg);
+}
+
+
+/* guest-bubbles */
 #guest-bubbles {
   position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background: url("../img/LIMIYA1140417(161).webp") center center / cover no-repeat;
+  background: url("../img/guest-desktop.webp") center center / cover no-repeat;
   filter: brightness(0.95) saturate(1.1);
 }
 
@@ -599,13 +678,6 @@ header nav .right-part {
   justify-content: center;
   left: 0;
   top: 0;
-  /* 會用 style.left/top 放初始位置 */
-  /* --mouse-x: 0px;
-  --mouse-y: 0px;
-  --float-x: 0px;
-  --float-y: 0px;
-  transform: translate3d(var(--mouse-x), var(--mouse-y), 0)
-             translate3d(var(--float-x), var(--float-y), 0); */
   will-change: transform;
   pointer-events: none;
   text-align: center;
@@ -613,13 +685,9 @@ header nav .right-part {
   line-height: 1.3;
   border-radius: 50%;
   user-select: none;
-  /* background-image:
-    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(255,255,255,0.25)),
-    radial-gradient(circle at 70% 70%, rgba(255,0,150,0.10), rgba(0,200,255,0.07)); */
   -webkit-mask-image: radial-gradient(circle, white 80%, transparent 81%);
   mask-image: radial-gradient(circle, white 80%, transparent 81%);
   background: white;
-  /* color: transparent; */
   color: #fff;
   background-clip: text;
   -webkit-background-clip: text;
@@ -668,7 +736,7 @@ header nav .right-part {
   font-size: 3rem;
   font-weight: bold;
   color: var(--color-accent);
-  min-width: 70px;
+  min-width: 51px;
 }
 
 .time-box small {
@@ -734,7 +802,7 @@ footer img {
   }
 
   #hero .right-part {
-    padding: 70px 4%;
+    padding: 51px 4%;
     flex-basis: 100%;
     height: auto;
   }
@@ -818,13 +886,19 @@ footer img {
   }
 
   /* End of wedding-info section */
+
+  #photo-collection > .img-box {
+    width: 88.64vw;
+    height: 75.34vh;
+  }
+
   .countdown-wrapper {
     gap: 25px;
   }
 
   #guest-bubbles {
     height: 150vh;
-    background-image: url("../img/LIMIYA1140417(163).webp");
+    background-image: url("../img/guest-mobile.webp");
     background-position: bottom center;
   }
 

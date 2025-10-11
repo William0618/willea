@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const mm = gsap.matchMedia();
   gsap.to(".hero-bg", {
-    scale: 1.1,       // 放大倍數
-    ease: "power3.out", // 或 "power3.out"
+    scale: 1.1,
+    ease: "power3.out",
     scrollTrigger: {
       trigger: "#hero",
       start: "top top",
@@ -14,46 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
       pin: true
     }
   });
-  // mm.add("(min-width: 768px)", () => {
-  //   gsap.to("#save-the-date>h1", {
-  //     scale: 10,
-  //     scrollTrigger: {
-  //       trigger: "#save-the-date",
-  //       start: "top 0%",
-  //       end: "top -100%",
-  //       scrub: 2,
-  //       pin: "#save-the-date",
-  //     }
-  //   });
-  // });
 
-  // mm.add("(max-width: 767px)", () => {
-  //   gsap.to("#save-the-date>h1", {
-  //     scale: 5,
-  //     scrollTrigger: {
-  //       trigger: "#save-the-date",
-  //       start: "top 0%",
-  //       end: "top -100%",
-  //       scrub: 2,
-  //       pin: "#save-the-date",
-  //     }
-  //   });
-  // });
-  // gsap.to("#save-the-date", {
-  //   backgroundColor: "#7295A4",
-  //   scrollTrigger: {
-  //     scroller: "body",
-  //     trigger: "#save-the-date",
-  //     start: "top 50%",
-  //     end: "top -50%",
-  //     scrub: 2,
-  //   }
-  // });
-  // 🎉 Save the Date 區塊進場動畫
   gsap.timeline({
     scrollTrigger: {
       trigger: "#save-the-date",
-      start: "top 50%", // 元素進入視窗 80% 處開始
+      start: "top 50%",
       toggleActions: "play none none reverse"
     }
   })
@@ -78,10 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   gsap.utils.toArray('#invitation .text h1').forEach((el, i) => {
-    // 文字與圖片分開動畫：文字從下方淡入，圖片同時放大並淡入
     const img = el.querySelector('img');
-
-    // 文字部分（從 y=40、opacity 0 -> 原位）
     gsap.from(el, {
       y: 40,
       autoAlpha: 0,
@@ -89,14 +51,13 @@ document.addEventListener("DOMContentLoaded", () => {
       ease: "power3.out",
       scrollTrigger: {
         trigger: el,
-        start: "top 85%",      // 元素頂端到達視窗 85% 高度時觸發
+        start: "top 85%",
         end: "top 60%",
         toggleActions: "play none none reverse",
-        // scrub: true, // 想要隨捲動平滑追蹤可開啟 scrub
+        scrub: true,
       }
     });
 
-    // 圖片（若存在）微延遲執行放大淡入
     if (img) {
       gsap.to(img, {
         autoAlpha: 1,
@@ -114,13 +75,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
   gsap.from("#invitation p", {
-    y: 40,               // 從下方滑上
-    autoAlpha: 0,        // 從透明到顯示
+    y: 40,
+    autoAlpha: 0,
     duration: 1.2,
     ease: "power3.out",
     scrollTrigger: {
       trigger: "#invitation p",
-      start: "top 70%",  // 當段落頂端接近視窗底部時觸發
+      start: "top 70%",
       toggleActions: "play none none reverse"
     }
   });
@@ -218,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollTrigger: {
       scroller: "body",
       start: "top 10%",
-      end: "top -100%",
+      end: "top -120%",
       trigger: "#character",
       pin: true,
       scrub: 2,
@@ -227,7 +188,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   const tlGallery = gsap.timeline({
     scrollTrigger: {
-      trigger: "#gallery .bg",
+      scroller: "body",
+      trigger: "#gallery",
       start: "top top",
       end: "+=3000",
       scrub: 2,
@@ -244,7 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
   tlGallery.fromTo(gallery.querySelectorAll(".gallery-description")[0],
     { yPercent: 600, opacity: 0.5 },
     { yPercent: -300, opacity: 1, duration: 115 },
-    '-=84'
+    '-=95'
   );
   const moments = gallery.querySelectorAll(".gallery-moments figure");
 
@@ -280,41 +242,39 @@ document.addEventListener("DOMContentLoaded", () => {
     '-=90'
   );
   tlGallery.fromTo(gallery.querySelectorAll(".gallery-description")[1],
-    { yPercent: 200, opacity: 0 },
+    { yPercent: 200, opacity: 0.5 },
     { yPercent: -1200, opacity: 1, duration: 90 },
     '-=90'
   );
 
+  const photoCollection = document.querySelectorAll("#photo-collection .img-box");
+  const settings = [
+    { x: 100, endOffset: -500, pinTarget: "#imgone", trigger: "#photo-collection", start: "top 0%" }, // 第一張特例
+    { x: -300, endOffset: -400 },
+    { x: 500, endOffset: -300 },
+    { x: -800, endOffset: -200 },
+    { x: 900, endOffset: -100 },
+  ];
 
-  // gsap.utils.toArray("#gallery .gallery-description").forEach((fig, i) => {
-  //     tlGallery.fromTo(fig, 
-  //       { yPercent: 100, opacity: 0 }, 
-  //       { yPercent: -300, opacity: 1, duration: 90 }, 
-  //       "<"
-  //     );
-  // });
+  photoCollection.forEach((img, i) => {
+    const s = settings[i] || {};
 
-  // const firstMoments = gallery.querySelectorAll('.gallery-moments')[0].querySelectorAll('figure');
-  // gsap.utils.toArray(firstMoments).forEach((fig, i) => {
-  //   console.log(fig);
-  //     tlGallery.fromTo(fig, 
-  //       { yPercent: 100,}, 
-  //       { yPercent: -300, duration: 90 }, 
-  //       "-=70"
-  //     );
-  // });
-  // const secondMoments = gallery.querySelectorAll('.gallery-moments')[1].querySelectorAll('figure');
-
-  // gsap.utils.toArray(secondMoments).forEach((fig, i) => {
-  //   console.log(fig);
-  //     tlGallery.fromTo(fig, 
-  //       { yPercent: 100,}, 
-  //       { yPercent: -1200, duration: 90 }, 
-  //       "-=70"
-  //     );
-  // });
-
-
+    gsap.to(img, {
+      boxShadow: "0 35px 60px rgba(0, 0, 0, 0.35)",
+      x: s.x || 0,
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: {
+        scroller: "body",
+        trigger: s.trigger || img,
+        start: s.start || "top 10%",
+        end: `top ${s.endOffset}%`,         // 字串模板要加反引號
+        scrub: 2,
+        pin: s.pinTarget ? document.querySelector(s.pinTarget) : true,
+        // markers: true,
+      }
+    });
+  });
 
   const weddingDate = new Date("2025-11-29T09:30:00+08:00").getTime();
   const timer = setInterval(updateCountdown, 1000);
@@ -326,7 +286,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (distance <= 0) {
       document.getElementById("countdown").innerHTML = `
         <h2>It's Our Wedding Day! 🎉</h2>
-        <p class="countdown-text">感謝你的祝福，讓愛延續 ❤️</p>
+        <p class="countdown-text">感謝你的祝福 ❤️</p>
       `;
       clearInterval(timer);
       return;
@@ -425,7 +385,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const ticker = gsap.ticker.add(updateBubbles);
-
     ScrollTrigger.create({
       trigger: "#guest-bubbles",
       start: "top 80%",
@@ -436,17 +395,17 @@ document.addEventListener("DOMContentLoaded", () => {
       onLeaveBack: () => gsap.ticker.remove(ticker),
     });
 
-    // 📍 桌機：滑鼠靠近逃開
+    // 桌機：滑鼠靠近逃開
     container.addEventListener("mousemove", handlePointerMove);
 
-    // 📱 手機：手指移動模擬滑鼠
+    // 手機：手指移動模擬滑鼠
     container.addEventListener("touchmove", (e) => {
       const touch = e.touches[0];
       if (!touch) return;
       handlePointerMove(touch);
     });
 
-    // 📍 手指/滑鼠移出：自然減速回復
+    // 手指/滑鼠移出：自然減速回復
     container.addEventListener("mouseleave", resetBubbles);
     container.addEventListener("touchend", resetBubbles);
     container.addEventListener("touchcancel", resetBubbles);
@@ -472,7 +431,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     }
-
     function resetBubbles() {
       bubbles.forEach(bubble => {
         gsap.to(bubble, {
@@ -486,8 +444,4 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-
-
-
 });
-
