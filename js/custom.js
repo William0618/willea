@@ -226,7 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
     '-=105'
   );
   tlGallery.fromTo(moments[3],
-    { yPercent: 160 },
+    { yPercent: 165 },
     { yPercent: -1200, duration: 90 },
     '-=100'
   );

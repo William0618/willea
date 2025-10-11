@@ -440,12 +440,13 @@ header nav .right-part {
 .gallery-description {
   position: relative;
   transform-origin: center center;
-  text-align: center;
   z-index: 1;
 }
 
 .gallery-description blockquote,
-.gallery-description figcaption {
+.gallery-description figcaption,
+#gallery h4 {
+  text-align: center;
   font-family: "Bodoni Moda", serif;
   font-weight: 700;
 }
