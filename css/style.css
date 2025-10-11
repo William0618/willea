@@ -34,7 +34,9 @@ body {
   margin: 0px;
   background: var(--color-bg);
 }
-
+section{
+  position: relative;
+}
 /* header part */
 header {
   position: sticky;
@@ -400,6 +402,7 @@ header nav .right-part {
   background-color: var(--color-primary);
   color: rgb(255, 255, 255);
   z-index: 3;
+  /* overflow: hidden; */
 }
 
 #gallery .bg {
@@ -419,10 +422,13 @@ header nav .right-part {
 
 #gallery .gallery-intro {
   padding-left: 55vw;
-  padding-bottom: 18vh;
+  padding-bottom: 30vh;
 }
 .content{
   padding: 16vh 0;
+}
+#gallery .gallery-intro p{
+  width: 28vw;
 }
 .gallery-description {
   position: relative;
@@ -438,6 +444,7 @@ header nav .right-part {
 }
 
 #gallery .gallery-moments {
+  height: 1500px;
   width: 80vw;
   margin: 0px auto;
   display: flex;
@@ -475,16 +482,10 @@ header nav .right-part {
 #wedding-info {
   height: 100vh;
   padding: 70px 4%;
-  background: linear-gradient(180deg, #fff, var(--color-shadow));
-}
-
-#wedding-info .info-content {
-  /* margin: 70px auto 0; */
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 1240px;
-
+  background: linear-gradient(180deg, #fff, var(--color-shadow));
 }
 
 #wedding-info .info-text {
@@ -793,6 +794,9 @@ footer img {
   #gallery .gallery-intro {
     padding-left: 40vw;
   }
+  #gallery .gallery-intro p {
+    width: 100%;
+  }
   #gallery .img-wrap img {
     width: 65vw;
   }
@@ -800,9 +804,6 @@ footer img {
   /* wedding-info section */
   #wedding-info {
     height: unset;
-  }
-
-  #wedding-info .info-content {
     flex-wrap: wrap;
     text-align: center;
   }

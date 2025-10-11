@@ -228,65 +228,63 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   const tlGallery = gsap.timeline({
     scrollTrigger: {
-      trigger: "#gallery",
+      trigger: "#gallery .bg",
       start: "top top",
-      end: "+=6000", // 長距滾動
+      end: "+=3000",
       scrub: 2,
-      pin: true,
+      // pin: true,
+      markers: true,
     }
   });
   const gallery = document.querySelector("#gallery");
   tlGallery.fromTo(gallery.querySelector(".bg"), { yPercent: 0 }, { yPercent: -100, duration: 25 }, "<");
-  tlGallery.fromTo(gallery.querySelector(".gallery-intro"), 
-    { yPercent: 100 }, 
-    { yPercent: -300, duration: 100 }, 
-  "<-1");
-  tlGallery.addLabel('gallery', '-=74.5');
-  tlGallery.fromTo(gallery.querySelectorAll(".gallery-description")[0], 
-    { yPercent: 100, opacity: 0},
-    { yPercent: -1200, opacity: 1, duration: 125 },
+  tlGallery.fromTo(gallery.querySelector(".gallery-intro"),
+    { yPercent: 100 },
+    { yPercent: -300, duration: 100 },
+    "<-1");
+  tlGallery.fromTo(gallery.querySelectorAll(".gallery-description")[0],
+    { yPercent: 600, opacity: 0.5 },
+    { yPercent: -300, opacity: 1, duration: 115 },
     '-=84'
   );
-  const moments1 = gallery.querySelectorAll(".gallery-moments")[0].querySelectorAll("figure");
+  const moments = gallery.querySelectorAll(".gallery-moments figure");
 
-  tlGallery.fromTo(moments1[0],
+  tlGallery.fromTo(moments[0],
     { yPercent: 100 },
     { yPercent: -1200, duration: 90 },
     '-=115'
   );
-  tlGallery.fromTo(moments1[1], 
+  tlGallery.fromTo(moments[1],
+    { yPercent: 110 },
+    { yPercent: -1200, duration: 90 },
+    '-=110'
+  );
+  tlGallery.fromTo(moments[2],
     { yPercent: 150 },
     { yPercent: -1200, duration: 90 },
+    '-=105'
+  );
+  tlGallery.fromTo(moments[3],
+    { yPercent: 160 },
+    { yPercent: -1200, duration: 90 },
+    '-=100'
+  );
+
+  tlGallery.fromTo(moments[4],
+    { yPercent: 170 },
+    { yPercent: -1500, duration: 90 },
     '-=95'
   );
-  tlGallery.fromTo(moments1[2], 
-    { yPercent: 200 },
-    { yPercent: -1200, duration: 90 },
+  tlGallery.fromTo(moments[5],
+    { yPercent: 180 },
+    { yPercent: -2000, duration: 90 },
     '-=90'
   );
-  tlGallery.fromTo(moments1[3], 
-    { yPercent: 300 },
-    { yPercent: -1200, duration: 70 },
-    '-=80'
+  tlGallery.fromTo(gallery.querySelectorAll(".gallery-description")[1],
+    { yPercent: 200, opacity: 0 },
+    { yPercent: -1200, opacity: 1, duration: 90 },
+    '-=90'
   );
-  tlGallery.fromTo(gallery.querySelectorAll(".gallery-description")[1], 
-    { yPercent: 400,},
-    { yPercent: -1500, duration: 100 },
-    '-=98'
-  );
-  // const moments2 = gallery.querySelectorAll(".gallery-moments")[1].querySelectorAll("figure");
-
-  // tlGallery.fromTo(moments2[0], 
-  //   { yPercent: 100 },
-  //   { yPercent: -1500, duration: 90 },
-  //   '-=75'
-  // );
-  // tlGallery.fromTo(moments2[1], 
-  //   { yPercent: 150 },
-  //   { yPercent: -2000, duration: 90 },
-  //   '-=70'
-  // );
-
 
 
   // gsap.utils.toArray("#gallery .gallery-description").forEach((fig, i) => {
@@ -317,8 +315,8 @@ document.addEventListener("DOMContentLoaded", () => {
   //     );
   // });
 
-  
-  
+
+
   const weddingDate = new Date("2025-11-29T09:30:00+08:00").getTime();
   const timer = setInterval(updateCountdown, 1000);
   updateCountdown();
