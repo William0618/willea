@@ -220,7 +220,6 @@ document.addEventListener("DOMContentLoaded", () => {
       start: "top 10%",
       end: "top -100%",
       trigger: "#character",
-
       pin: true,
       scrub: 2,
 
@@ -233,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
       end: "+=3000",
       scrub: 2,
       // pin: true,
-      markers: true,
+      // markers: true,
     }
   });
   const gallery = document.querySelector("#gallery");
