@@ -409,7 +409,7 @@ header nav .right-part {
   background-color: var(--color-primary);
   color: rgb(255, 255, 255);
   z-index: 3;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 #gallery .bg {
@@ -420,11 +420,6 @@ header nav .right-part {
   left: 0px;
   z-index: -1;
   background-color: var(--color-primary);
-}
-
-.border {
-  box-sizing: border-box;
-  padding: 2vw;
 }
 
 #gallery .gallery-intro {
