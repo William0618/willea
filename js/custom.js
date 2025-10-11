@@ -186,14 +186,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
   });
+
   const tlGallery = gsap.timeline({
     scrollTrigger: {
       scroller: "body",
       trigger: "#gallery",
       start: "top top",
-      end: "+=3000",
+      end: "+=4000",
       scrub: 2,
-      // pin: true,
       // markers: true,
     }
   });
@@ -204,12 +204,12 @@ document.addEventListener("DOMContentLoaded", () => {
     { yPercent: -300, duration: 100 },
     "<-1");
   tlGallery.fromTo(gallery.querySelectorAll(".gallery-description")[0],
-    { yPercent: 600, opacity: 0.5 },
+    { yPercent: 600, opacity: 0 },
     { yPercent: -300, opacity: 1, duration: 115 },
     '-=95'
   );
+  
   const moments = gallery.querySelectorAll(".gallery-moments figure");
-
   tlGallery.fromTo(moments[0],
     { yPercent: 100 },
     { yPercent: -1200, duration: 90 },
@@ -242,10 +242,11 @@ document.addEventListener("DOMContentLoaded", () => {
     '-=90'
   );
   tlGallery.fromTo(gallery.querySelectorAll(".gallery-description")[1],
-    { yPercent: 200, opacity: 0.5 },
+    { yPercent: 200, opacity: 0 },
     { yPercent: -1200, opacity: 1, duration: 90 },
     '-=90'
   );
+
   const settings = {
     desktop: [
       { x: 100, endOffset: -500, pinTarget: "#imgone", trigger: "#photo-collection", start: "top 0%" }, // 第一張特例
