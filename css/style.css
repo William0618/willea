@@ -73,9 +73,10 @@ header nav .right-part {
 
 .menu-btn {
   width: 30px;
-  color: var(--color-bg);
   font-size: 30px;
+  font-weight: 700;
   line-height: 30px;
+  color: var(--color-bg);
 }
 
 .header-text {
