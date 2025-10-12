@@ -1,8 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-
   const mm = gsap.matchMedia();
+
+  /* =====================================================
+    hero section
+  ===================================================== */
   gsap.to(".hero-bg", {
     scale: 1.1,
     ease: "power3.out",
@@ -14,6 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
       pin: true
     }
   });
+
+  /* =====================================================
+    save the date section
+  ===================================================== */
 
   gsap.timeline({
     scrollTrigger: {
@@ -41,7 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
       ease: "power3.out"
     }, "-=0.3");
 
-
+  /* =====================================================
+    invitation section
+  ===================================================== */
   gsap.utils.toArray('#invitation .text h1').forEach((el, i) => {
     const img = el.querySelector('img');
     gsap.from(el, {
@@ -86,32 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  mm.add("(max-width: 767px)", () => {
-    gsap.from(".bride-part .intro-text", {
-      y: 80,
-      opacity: 0,
-      scrollTrigger: {
-        trigger: ".bride-part .intro-text",
-        start: "top 100%",
-        end: "top 0%",
-        scrub: 2,
-        // markers: true,
-      },
-    });
-
-    gsap.from(".groom-part .intro-text", {
-      y: -80,
-      opacity: 0,
-      scrollTrigger: {
-        trigger: ".groom-part .intro-text",
-        start: "top 100%",
-        end: "top 50%",
-        scrub: 2,
-        // markers: true,
-      }
-    });
-  });
-
   const imageOne = document.querySelector("#invitation .image1")
 
   imageOne.addEventListener("mouseenter", function () {
@@ -146,6 +129,35 @@ document.addEventListener("DOMContentLoaded", () => {
   imageThree.addEventListener("mouseleave", function () {
     imageThree.style.scale = "1"
     imageThree.style.transform = "rotate(0deg)"
+  });
+
+  /* =====================================================
+    character section
+  ===================================================== */
+  mm.add("(max-width: 767px)", () => {
+    gsap.from(".bride-part .intro-text", {
+      y: 80,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".bride-part .intro-text",
+        start: "top 100%",
+        end: "top 0%",
+        scrub: 2,
+        // markers: true,
+      },
+    });
+
+    gsap.from(".groom-part .intro-text", {
+      y: -80,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".groom-part .intro-text",
+        start: "top 100%",
+        end: "top 50%",
+        scrub: 2,
+        // markers: true,
+      }
+    });
   });
 
   gsap.from(".groom-img", {
@@ -183,10 +195,11 @@ document.addEventListener("DOMContentLoaded", () => {
       trigger: "#character",
       pin: true,
       scrub: 2,
-
     }
   });
-
+  /* =====================================================
+    gallery section
+  ===================================================== */
   const tlGallery = gsap.timeline({
     scrollTrigger: {
       scroller: "body",
@@ -208,7 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { yPercent: -300, opacity: 1, duration: 115 },
     '-=95'
   );
-  
+
   const moments = gallery.querySelectorAll(".gallery-moments figure");
   tlGallery.fromTo(moments[0],
     { yPercent: 100 },
@@ -247,27 +260,102 @@ document.addEventListener("DOMContentLoaded", () => {
     '-=90'
   );
 
+  /* =====================================================
+    photo collection section
+  ===================================================== */
+  // const photoCollection = document.querySelectorAll("#photo-collection .img-box");
+  // const settings = {
+  //   desktop: [
+  //     { x: 100, endOffset: -500, pinTarget: "#collection1", trigger: "#photo-collection", start: "top 0%" }, // 第一張特例
+  //     { x: -300, endOffset: -400 },
+  //     { x: 500, endOffset: -300 },
+  //     { x: -800, endOffset: -200 },
+  //     { x: 900, endOffset: -100 },
+  //   ],
+  //   mobile: [
+  //     { x: 150, endOffset: -500, pinTarget: "#collection1", trigger: "#photo-collection", start: "top 0%" }, // 第一張特例
+  //     { x: -120, endOffset: -400 },
+  //     { x: 80, endOffset: -300 },
+  //     { x: -50, endOffset: -200 },
+  //     { x: 60, endOffset: -100 },
+  //   ],
+  // };
+  // mm.add("(min-width: 768px)", () => {
+  //   photoCollection.forEach((img, i) => {
+  //     const s = settings['desktop'][i] || {};
+
+  //     gsap.to(img, {
+  //       boxShadow: "0 35px 60px rgba(0, 0, 0, 0.35)",
+  //       x: s.x || 0,
+  //       duration: 0.8,
+  //       ease: "power3.out",
+  //       scrollTrigger: {
+  //         scroller: "body",
+  //         trigger: s.trigger || img,
+  //         start: s.start || "top 10%",
+  //         end: `top ${s.endOffset}%`,         // 字串模板要加反引號
+  //         scrub: 2,
+  //         pin: s.pinTarget ? document.querySelector(s.pinTarget) : true,
+  //         // markers: true,
+  //       }
+  //     });
+  //   });
+
+  // });
+
+  // mm.add("(max-width: 767px)", () => {
+
+  //   photoCollection.forEach((img, i) => {
+  //     const s = settings['mobile'][i] || {};
+
+  //     gsap.to(img, {
+  //       boxShadow: "0 35px 60px rgba(0, 0, 0, 0.35)",
+  //       x: s.x || 0,
+  //       duration: 0.8,
+  //       ease: "power3.out",
+  //       scrollTrigger: {
+  //         scroller: "body",
+  //         trigger: s.trigger || img,
+  //         start: s.start || "top 10%",
+  //         end: `top ${s.endOffset}%`,         // 字串模板要加反引號
+  //         scrub: 2,
+  //         pin: s.pinTarget ? document.querySelector(s.pinTarget) : true,
+  //         // markers: true,
+  //       }
+  //     });
+  //   });
+  // });
+  /* =====================================================
+  photo collection section
+===================================================== */
+  const photoCollection = document.querySelectorAll("#photo-collection .img-box");
   const settings = {
     desktop: [
-      { x: 100, endOffset: -500, pinTarget: "#imgone", trigger: "#photo-collection", start: "top 0%" }, // 第一張特例
-      { x: -300, endOffset: -400 },
-      { x: 500, endOffset: -300 },
-      { x: -800, endOffset: -200 },
-      { x: 900, endOffset: -100 },
+      { x: "6vw", endOffset: -500, pinTarget: "#collection1", trigger: "#photo-collection", start: "top 0%" },
+      { x: "-15vw", endOffset: -400 },
+      { x: "23vw", endOffset: -300 },
+      { x: "-40vw", endOffset: -200 },
+      { x: "43vw", endOffset: -100 },
     ],
     mobile: [
-      { x: 150, endOffset: -500, pinTarget: "#imgone", trigger: "#photo-collection", start: "top 0%" }, // 第一張特例
-      { x: -120, endOffset: -400 },
-      { x: 80, endOffset: -300 },
-      { x: -50, endOffset: -200 },
-      { x: 60, endOffset: -100 },
+      { x: "40vw", endOffset: -500, pinTarget: "#collection1", trigger: "#photo-collection", start: "top 0%" },
+      { x: "-32vw", endOffset: -400 },
+      { x: "21.3vw", endOffset: -300 },
+      { x: "-13.3vw", endOffset: -200 },
+      { x: "16vw", endOffset: -100 },
     ],
   };
-  const photoCollection = document.querySelectorAll("#photo-collection .img-box");
-  mm.add("(min-width: 768px)", () => {
-    photoCollection.forEach((img, i) => {
-      const s = settings['desktop'][i] || {};
 
+  function setupPhotoCollection(device) {
+    // 先清掉舊的 ScrollTrigger
+    ScrollTrigger.getAll().forEach(st => {
+      const trg = st.trigger;
+      if (trg && trg.closest && trg.closest("#photo-collection")) st.kill();
+    });
+
+    const config = settings[device];
+    photoCollection.forEach((img, i) => {
+      const s = config[i] || {};
       gsap.to(img, {
         boxShadow: "0 35px 60px rgba(0, 0, 0, 0.35)",
         x: s.x || 0,
@@ -277,39 +365,33 @@ document.addEventListener("DOMContentLoaded", () => {
           scroller: "body",
           trigger: s.trigger || img,
           start: s.start || "top 10%",
-          end: `top ${s.endOffset}%`,         // 字串模板要加反引號
+          end: `top ${s.endOffset}%`,
           scrub: 2,
           pin: s.pinTarget ? document.querySelector(s.pinTarget) : true,
           // markers: true,
-        }
+        },
       });
     });
+  }
 
+  mm.add("(min-width: 768px)", () => setupPhotoCollection("desktop"));
+  mm.add("(max-width: 767px)", () => setupPhotoCollection("mobile"));
+
+  // resize
+  let resizeTimeout;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      const device = window.innerWidth < 768 ? "mobile" : "desktop";
+      setupPhotoCollection(device);
+      ScrollTrigger.refresh();
+    }, 300);
   });
 
-  mm.add("(max-width: 767px)", () => {
 
-    photoCollection.forEach((img, i) => {
-      const s = settings['mobile'][i] || {};
-
-      gsap.to(img, {
-        boxShadow: "0 35px 60px rgba(0, 0, 0, 0.35)",
-        x: s.x || 0,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          scroller: "body",
-          trigger: s.trigger || img,
-          start: s.start || "top 10%",
-          end: `top ${s.endOffset}%`,         // 字串模板要加反引號
-          scrub: 2,
-          pin: s.pinTarget ? document.querySelector(s.pinTarget) : true,
-          // markers: true,
-        }
-      });
-    });
-  });
-
+  /* =====================================================
+    countdown section
+  ===================================================== */
   const weddingDate = new Date("2025-11-29T09:30:00+08:00").getTime();
   const timer = setInterval(updateCountdown, 1000);
   updateCountdown();
@@ -337,6 +419,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
   }
 
+  /* =====================================================
+    guest comments section
+  ===================================================== */
   const API_URL = './data/comments.json';
   const container = document.querySelector('#guest-bubbles .bubbles');
   let bubblesArr = [];
