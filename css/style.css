@@ -33,6 +33,7 @@ body {
   position: relative;
   margin: 0px;
   background: var(--color-bg);
+  overflow-x: hidden;
 }
 section{
   position: relative;
@@ -279,7 +280,9 @@ header nav .right-part {
   line-height: 1.7;
 }
 
-.image:hover {
+#invitation .image1:hover,
+#invitation .image2:hover,
+#invitation .image3:hover {
   cursor: none;
 }
 
