@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+  ScrollTrigger.normalizeScroll(true);
   const mm = gsap.matchMedia();
 
   /* =====================================================
@@ -395,42 +396,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (w >= 1024) device = "desktop";
       else if (w >= 768) device = "tablet";
       else device = "mobile";
-      console.log("device:", device);
+      // console.log("device:", device);
       setupPhotoCollection(device);
       ScrollTrigger.refresh();
     }, 300);
   });
-
-
-  /* =====================================================
-    countdown section
-  ===================================================== */
-  const weddingDate = new Date("2025-11-29T09:30:00+08:00").getTime();
-  const timer = setInterval(updateCountdown, 1000);
-  updateCountdown();
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = weddingDate - now;
-
-    if (distance <= 0) {
-      document.getElementById("countdown").innerHTML = `
-        <h2>It's Our Wedding Day! 🎉</h2>
-        <p class="countdown-text">感謝你的祝福 ❤️</p>
-      `;
-      clearInterval(timer);
-      return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById("days").textContent = String(days).padStart(2, "0");
-    document.getElementById("hours").textContent = String(hours).padStart(2, "0");
-    document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
-    document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
-  }
 
   /* =====================================================
     guest comments section
@@ -575,5 +545,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  /* =====================================================
+    countdown section
+  ===================================================== */
+  const weddingDate = new Date("2025-11-29T09:30:00+08:00").getTime();
+  const timer = setInterval(updateCountdown, 1000);
+  updateCountdown();
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    if (distance <= 0) {
+      document.getElementById("countdown").innerHTML = `
+        <h2>It's Our Wedding Day! 🎉</h2>
+        <p class="countdown-text">感謝你的祝福 ❤️</p>
+      `;
+      clearInterval(timer);
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").textContent = String(days).padStart(2, "0");
+    document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+    document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+    document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+  }
 
 });
