@@ -33,7 +33,7 @@ body {
   position: relative;
   margin: 0px;
   background: var(--color-bg);
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
 }
 section{
   position: relative;
@@ -690,7 +690,7 @@ header nav .right-part {
   transition: transform 0.18s ease-out;
   overflow: hidden;
   word-break: break-word;
-
+  z-index: 4;
 }
 
 
