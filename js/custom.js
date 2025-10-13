@@ -338,11 +338,11 @@ document.addEventListener("DOMContentLoaded", () => {
       { x: "43vw", endOffset: -100 },
     ],
     mobile: [
-      { x: "40vw", endOffset: -500, pinTarget: "#collection1", trigger: "#photo-collection", start: "top 0%" },
-      { x: "-32vw", endOffset: -400 },
-      { x: "21.3vw", endOffset: -300 },
-      { x: "-13.3vw", endOffset: -200 },
-      { x: "16vw", endOffset: -100 },
+      { x: 150, endOffset: -500, pinTarget: "#collection1", trigger: "#photo-collection", start: "top 0%" },
+      { x: -120, endOffset: -400 }, 
+      { x: 80, endOffset: -300 }, 
+      { x: -50, endOffset: -200 }, 
+      { x: 60, endOffset: -100 },
     ],
   };
 
