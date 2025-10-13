@@ -513,7 +513,7 @@ document.addEventListener("DOMContentLoaded", () => {
     container.addEventListener("touchcancel", resetBubbles);
 
     function handlePointerMove(e) {
-      console.log('handlePointerMove', e);
+      // console.log('handlePointerMove', e);
       const rect = container.getBoundingClientRect();
       const mouseX = e.clientX - rect.left;
       const mouseY = e.clientY - rect.top;
