@@ -380,12 +380,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // resize
   let resizeTimeout;
   window.addEventListener("resize", () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
+    // clearTimeout(resizeTimeout);
+    // resizeTimeout = setTimeout(() => {
       const device = window.innerWidth < 768 ? "mobile" : "desktop";
       setupPhotoCollection(device);
-      ScrollTrigger.refresh();
-    }, 300);
+    //   ScrollTrigger.refresh();
+    // }, 300);
   });
 
 
