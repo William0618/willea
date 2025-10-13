@@ -333,16 +333,23 @@ document.addEventListener("DOMContentLoaded", () => {
     desktop: [
       { x: "6vw", endOffset: -500, pinTarget: "#collection1", trigger: "#photo-collection", start: "top 0%" },
       { x: "-15vw", endOffset: -400 },
-      { x: "23vw", endOffset: -300 },
+      { x: "20vw", endOffset: -300 },
       { x: "-40vw", endOffset: -200 },
       { x: "43vw", endOffset: -100 },
     ],
+    tablet: [
+      { x: "12vw", endOffset: -500, pinTarget: "#collection1", trigger: "#photo-collection", start: "top 0%" },
+      { x: "-18vw", endOffset: -400 },
+      { x: "25vw", endOffset: -300 },
+      { x: "-35vw", endOffset: -200 },
+      { x: "15vw", endOffset: -100 },
+    ],
     mobile: [
-      { x: 150, endOffset: -500, pinTarget: "#collection1", trigger: "#photo-collection", start: "top 0%" },
-      { x: -120, endOffset: -400 }, 
-      { x: 80, endOffset: -300 }, 
-      { x: -50, endOffset: -200 }, 
-      { x: 60, endOffset: -100 },
+      { x: "35vw", endOffset: -500, pinTarget: "#collection1", trigger: "#photo-collection", start: "top 0%" },
+      { x: "-25vw", endOffset: -400 },
+      { x: "21.3vw", endOffset: -300 },
+      { x: "-13.3vw", endOffset: -200 },
+      { x: "13vw", endOffset: -100 },
     ],
   };
 
@@ -374,18 +381,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  mm.add("(min-width: 768px)", () => setupPhotoCollection("desktop"));
+  mm.add("(min-width: 1024px)", () => setupPhotoCollection("desktop"));
+  mm.add("(min-width: 768px) and (max-width: 1023px)", () => setupPhotoCollection("tablet"));
   mm.add("(max-width: 767px)", () => setupPhotoCollection("mobile"));
 
   // resize
   let resizeTimeout;
   window.addEventListener("resize", () => {
-    // clearTimeout(resizeTimeout);
-    // resizeTimeout = setTimeout(() => {
-      const device = window.innerWidth < 768 ? "mobile" : "desktop";
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      let device;
+      const w = window.innerWidth;
+      if (w >= 1024) device = "desktop";
+      else if (w >= 768) device = "tablet";
+      else device = "mobile";
+      console.log("device:", device);
       setupPhotoCollection(device);
-    //   ScrollTrigger.refresh();
-    // }, 300);
+      ScrollTrigger.refresh();
+    }, 300);
   });
 
 
